@@ -1,112 +1,48 @@
 name: faqs
 metadata:
   label: "FAQs"
-  groups: [{"id":"59e25867-7076-4160-8715-4e953ea196b2","name":"Page Content","weight":0},{"id":"f7dd644f-d079-43db-8a17-6260140f0c2e","name":"System","weight":1}]
-  is_enabled: true
+  groups: [{"id":"39ca0bf3-c736-4080-b247-40c2ae589623","name":"Page Content","weight":0},{"id":"9631b8c0-527c-4a8f-9074-35dccddfdb59","name":"System","weight":1}]
+  is_archived: false
 properties:
 - name: answer
   type: string
   metadata:
-    type: "multi_line"
     label: "Answer"
-    status: "enabled"
-    values: []
     weight: 1
-    group_id: "59e25867-7076-4160-8715-4e953ea196b2"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "39ca0bf3-c736-4080-b247-40c2ae589623"
+    ui_element: "multi_line"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
 - name: category
   type: string
   metadata:
-    type: "list_select"
     label: "Category"
-    status: "enabled"
-    values: ["Order","Shipping","Payment","Return"]
     weight: 2
-    group_id: "59e25867-7076-4160-8715-4e953ea196b2"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    options: ["Order","Shipping","Payment","Return"]
+    group_id: "39ca0bf3-c736-4080-b247-40c2ae589623"
+    ui_element: "select"
     is_required: false
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
     is_searchable: true
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Use categories to orgainse your content into relevant groups."
+    is_shown_in_table: true
 - name: featured
   type: boolean
   metadata:
-    type: "toggle"
     label: "Featured"
-    status: "enabled"
-    values: []
     weight: 6
-    group_id: "f7dd644f-d079-43db-8a17-6260140f0c2e"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
-    is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
+    group_id: "9631b8c0-527c-4a8f-9074-35dccddfdb59"
+    ui_element: "toggle"
     help_text_tooltip: "Toggle this on if you want this to be featured in the Featured FAQ's."
+    is_shown_in_table: false
 - name: file_download
   type: upload
   metadata:
-    type: "media_file"
     label: "File Download"
-    status: "enabled"
-    values: []
     weight: 3
-    group_id: "59e25867-7076-4160-8715-4e953ea196b2"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "39ca0bf3-c736-4080-b247-40c2ae589623"
+    ui_element: "media_file"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
+    max_file_size: 100
     help_text_tooltip: "You may attach a file to your FAQ and it will be available for download for users."
   options:
     acl: public
@@ -115,104 +51,41 @@ properties:
 - name: file_download_label
   type: string
   metadata:
-    type: ""
     label: "File Download Label"
-    status: "enabled"
-    values: []
     weight: 4
-    group_id: "59e25867-7076-4160-8715-4e953ea196b2"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "39ca0bf3-c736-4080-b247-40c2ae589623"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Description label for the attached file of your FAQ."
+    is_shown_in_table: false
 - name: question
   type: string
   metadata:
-    type: ""
     label: "Question"
-    status: "enabled"
-    values: []
     weight: 0
-    group_id: "59e25867-7076-4160-8715-4e953ea196b2"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "39ca0bf3-c736-4080-b247-40c2ae589623"
+    ui_element: "input"
     is_required: false
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
     is_searchable: true
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
+    is_shown_in_table: true
 - name: sort_order
   type: integer
   metadata:
-    type: "number"
     label: "Sort Order"
-    status: "enabled"
-    values: []
     weight: 5
-    group_id: "f7dd644f-d079-43db-8a17-6260140f0c2e"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "9631b8c0-527c-4a8f-9074-35dccddfdb59"
+    ui_element: "number"
     is_required: true
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: "0"
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Use this field when you would like to sort the order of the content. Ordered ascending."
+    is_shown_in_table: false
 - name: status
   type: string
   metadata:
-    type: "list_select"
     label: "Status"
-    status: "enabled"
-    values: ["Published","Unpublished","Draft"]
     weight: 7
-    group_id: "f7dd644f-d079-43db-8a17-6260140f0c2e"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    options: ["Published","Unpublished","Draft"]
+    group_id: "9631b8c0-527c-4a8f-9074-35dccddfdb59"
+    ui_element: "select"
     is_required: true
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
+    is_shown_in_table: false

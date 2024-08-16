@@ -1,478 +1,192 @@
 name: articles
 metadata:
   label: "Articles"
-  groups: [{"id":"59382b1c-e9cc-433d-893a-720d97f049b3","name":"Post Content","weight":0},{"id":"72380ef7-2022-4046-8225-be5f476bb89d","name":"System","weight":1},{"id":"5e358df0-4a81-4635-b645-606f7651274c","name":"Open Graph","weight":2},{"id":"d1dda6de-d7fb-44c0-a3e0-83fbfb0f3e62","name":"SEO","weight":3}]
-  is_enabled: true
+  groups: [{"id":"11664835-e84f-4285-9ab4-7ff2e52c0363","name":"Post Content","weight":0},{"id":"26208e95-39b9-4890-948e-245f326c7b95","name":"System","weight":1},{"id":"8c03fe33-280b-4959-8272-9d6f6f192680","name":"Open Graph","weight":2},{"id":"6747ec78-f916-4394-8134-74ea3424bda3","name":"SEO","weight":3}]
+  is_archived: false
 properties:
 - name: author
   type: string
   metadata:
-    type: "text"
     label: "Author"
-    status: "enabled"
-    values: []
     weight: 1
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
+    is_shown_in_table: false
 - name: canonical_url
   type: string
   metadata:
-    type: "text"
     label: "Canonical URL"
-    status: "enabled"
-    values: []
     weight: 17
-    group_id: "d1dda6de-d7fb-44c0-a3e0-83fbfb0f3e62"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "6747ec78-f916-4394-8134-74ea3424bda3"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "You can learn more about canonical URL's from Google here - https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls"
+    is_shown_in_table: false
 - name: category
   type: string
   metadata:
-    type: "list_select"
     label: "Category"
-    status: "enabled"
-    values: ["Technology","Entertainment","Business"]
     weight: 2
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    options: ["Technology","Entertainment","Business"]
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "select"
     is_required: true
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Use categories to orgainse your content into relevant groups."
+    is_shown_in_table: true
 - name: content
   type: string
   metadata:
-    type: "html"
     label: "Content"
-    status: "enabled"
-    values: []
     weight: 5
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "html"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
 - name: meta_description
   type: string
   metadata:
-    type: "text"
     label: "Meta Description"
-    status: "enabled"
-    values: []
     weight: 16
-    group_id: "d1dda6de-d7fb-44c0-a3e0-83fbfb0f3e62"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "6747ec78-f916-4394-8134-74ea3424bda3"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Short description about your content that will be referenced by search engines."
+    is_shown_in_table: false
 - name: meta_title
   type: string
   metadata:
-    type: "text"
     label: "Meta Title"
-    status: "enabled"
-    values: []
     weight: 15
-    group_id: "d1dda6de-d7fb-44c0-a3e0-83fbfb0f3e62"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "6747ec78-f916-4394-8134-74ea3424bda3"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "A good title has between 40-60 characters."
+    is_shown_in_table: false
 - name: og_description
   type: string
   metadata:
-    type: "multi_line"
-    label: "og:description"
-    status: "enabled"
-    values: []
+    label: "og: description"
     weight: 10
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "multi_line"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "This is the 1-2 sentence snippet that shows on a post when shared on social media."
 - name: og_image
   type: upload
   metadata:
-    type: "media_image"
-    label: "og:image"
-    status: "enabled"
-    values: []
+    label: "og: image"
     weight: 14
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "media_image"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
+    max_file_size: 10
     help_text_tooltip: "The URL for an image you want to represent your content when shared on social media. Images must be either PNG, JPEG and GIF formats and at least 50px by 50px."
   options:
     acl: public
-    cache_control: max-age=315576000, public
+    cache_control: ""
     content_disposition: inline
 - name: og_site_name
   type: string
   metadata:
-    type: "text"
-    label: "og:site_name"
-    status: "enabled"
-    values: []
+    label: "og: site_name"
     weight: 13
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "The name of your site when shared on social media."
+    is_shown_in_table: false
 - name: og_title
   type: string
   metadata:
-    type: "text"
-    label: "og:title"
-    status: "enabled"
-    values: []
+    label: "og: title"
     weight: 9
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "The title of your content when shared on social media."
+    is_shown_in_table: false
 - name: og_type
   type: string
   metadata:
-    type: "text"
-    label: "og:type"
-    status: "enabled"
-    values: []
+    label: "og: type"
     weight: 11
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "The type of content. Think of these as categories, hotel, blog, article etc."
+    is_shown_in_table: false
 - name: og_url
   type: string
   metadata:
-    type: "text"
-    label: "og:url"
-    status: "enabled"
-    values: []
+    label: "og: url"
     weight: 12
-    group_id: "5e358df0-4a81-4635-b645-606f7651274c"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "8c03fe33-280b-4959-8272-9d6f6f192680"
+    ui_element: "input"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "This will be the URL that will be associated with your content when shared on social media."
+    is_shown_in_table: false
 - name: post_title
   type: string
   metadata:
-    type: "text"
     label: "Post Title"
-    status: "enabled"
-    values: []
     weight: 4
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "input"
     is_required: true
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
     is_searchable: true
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
-    help_text_tooltip: ""
+    is_shown_in_table: true
 - name: publish_date
   type: date
   metadata:
-    type: "date"
     label: "Publish Date"
-    status: "enabled"
-    values: []
     weight: 0
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "date"
     is_required: true
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Enter the date that you would like to have your content published. Setting a date in the future will release the content on that date."
+    is_shown_in_table: true
 - name: short_text
   type: string
   metadata:
-    type: "text"
     label: "Short Text"
-    status: "enabled"
-    values: []
     weight: 3
-    group_id: "59382b1c-e9cc-433d-893a-720d97f049b3"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
+    ui_element: "input"
     is_required: true
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Text displayed on article list view."
+    is_shown_in_table: false
 - name: slug
   type: string
   metadata:
-    type: "text"
     label: "Slug"
-    status: "enabled"
-    values: []
     weight: 6
-    group_id: "72380ef7-2022-4046-8225-be5f476bb89d"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "26208e95-39b9-4890-948e-245f326c7b95"
+    ui_element: "input"
     is_required: true
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: ""
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "You can define the slug of your content. The slug is the part that comes at the very end of a URL. It is human-readable, a unique identifier and used to identify this content. For example, your URL may look like the following https://website.com/category/<slug>"
+    is_shown_in_table: false
 - name: sort_order
   type: integer
   metadata:
-    type: "number"
     label: "Sort Order"
-    status: "enabled"
-    values: []
     weight: 7
-    group_id: "72380ef7-2022-4046-8225-be5f476bb89d"
-    is_header: false
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    group_id: "26208e95-39b9-4890-948e-245f326c7b95"
+    ui_element: "number"
     is_required: false
-    is_sortable: false
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: "0"
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "Use this field when you would like to sort the order of the content. Ordered ascending."
+    is_shown_in_table: false
 - name: status
   type: string
   metadata:
-    type: "list_select"
     label: "Status"
-    status: "enabled"
-    values: ["Draft","Published"]
     weight: 8
-    group_id: "72380ef7-2022-4046-8225-be5f476bb89d"
-    is_header: true
-    mock_data: ""
-    is_enabled: ""
-    validation: ""
+    options: ["Draft","Published"]
+    group_id: "26208e95-39b9-4890-948e-245f326c7b95"
+    ui_element: "select"
     is_required: false
     is_sortable: true
-    placeholder: ""
-    primary_key: ""
-    example_data: ""
-    default_value: "Draft"
-    display_field: ""
-    error_message: ""
-    is_searchable: false
-    character_limit: ""
-    reference_field: ""
-    description_notes: ""
     help_text_tooltip: "You can utilise the 'draft' status when you would like to work on some content before releasing it. To to preview your draft content on your websute, add \"?preview=true\" to the contents URL."
+    is_shown_in_table: true
