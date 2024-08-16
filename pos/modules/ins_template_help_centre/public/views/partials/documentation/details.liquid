@@ -1,0 +1,58 @@
+---
+metadata: {
+  "database_name": "modules/ins_template_help_centre/documentation",
+  "layout": "details",
+  "slug2": "{{ context.exports.data.item.slug }}",
+  "page_title": "{{ context.exports.data.item.title }}",
+  "meta_title": "{{ context.exports.data.item.meta_title }}",
+  "meta_description": "{{ context.exports.data.item.meta_description }}",
+  "og:title": "{{ context.exports.data.item.og_type }}",
+  "og:description": "{{ context.exports.data.item.og_description }}",
+  "og:type": "{{ context.exports.data.item.og_type }}",
+  "og:url": "{{ context.exports.data.item.og_url }}",
+  "og:site_name": "{{ context.exports.data.item.og_site_name }}",
+  "og:image": '{{ context.exports.data.item.og_image.version["OG-Image-1200x630"] }}',
+  "canonical_url": "{{ context.exports.data.item.canonical_url }}",
+  "search_engine_visibility": false
+}
+---
+{%- assign item = context.exports.data.item -%}
+{%- assign last_updated = context.exports.data.updated_at -%}
+
+{%- comment -%} Checking if detail can be display  {%- endcomment -%}
+{%- assign date_now = "now" | date: "%Y-%m-%d" -%}
+{%- assign item_status = item.status | downcase -%}
+{%- assign is_displayed = false -%}
+
+{%- if item_status == 'published' and item.publish_date <= date_now -%}
+  {%- assign is_displayed = true -%}
+{%- elsif item_status == 'published' and item.publish_date > date_now  and context.params.preview == "true" -%}
+  {%- assign is_displayed = true -%}
+{%- elsif item_status == 'draft' and context.params.preview == "true" -%}
+  {%- assign is_displayed = true -%}
+{%- endif -%}
+{%- comment -%} Checking if detail can be display  {%- endcomment -%}
+
+{%- if is_displayed -%}
+  <h1>{{ item.title }}</h1>
+  <div class="spacer small"></div>
+
+  <span class="published-on">
+    Published on {{ item.publish_date  | date: "%B %d, %Y" }}
+    {%- if last_updated contains item.publish_date -%}
+      
+    {%- else -%}
+      , updated on {{ last_updated | date: "%B %d, %Y" }}
+    {%- endif -%}
+  </span>
+  <div class="spacer medium"></div>
+
+  <p><strong>{{ item.short_description }}</strong></p>
+  <div class="spacer xx-large"></div>
+
+  <div>
+  {{ item.content | markdown }}
+  </div>
+{%- else -%}
+  {% redirect_to '/404' %}
+{%- endif -%}

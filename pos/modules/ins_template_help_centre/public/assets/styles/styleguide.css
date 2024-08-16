@@ -1,0 +1,359 @@
+/**
+* Variables - SCSS
+    $font-family: 'Lato',sans-serif;
+    $heading-font-family: 'Cabin',sans-serif;
+    $grid-side-padding from Foundation CSS: .9375rem
+
+    $sky-blue: #EAF5FF;
+    $dark-grey: #595959;
+    $light-grey: #FAFBFC;
+    $black: #2B2B2B;
+    $blue: #116EC3;
+    $white: #FFFFFF;
+    $green: #24BE8D; // success
+    $red: #F27474; // error
+    $orange: #FFA639; // warning
+
+    $primary-color: $black;
+    $secondary-color: $dark-grey;
+    $link-color: $blue;
+    $bg-white: $white;
+    $bg-blue: $blue;
+    $bg-grey: $light-grey;
+    
+*/
+
+:root {
+    font-size: 16px;
+    /* Main colors */
+    --color-main: #116EC3;
+    --color-sub1: #8C1EE3;
+    --color-sub2: #2C3148;
+    /* Support Colors */
+    --color-success: #37B68F;
+    --color-error: #F27474;
+    --color-warning: #FFA639;
+    /* Font colors */
+    --color-font-head: #2B2B2B;
+    --color-font-sub: #404040;
+    --color-font-body: #595959;
+    --color-font-inv: #FFFFFF;
+    --color-hover: #105DA3;
+    /* font family */
+    --font-main: 'Lato', sans-serif;
+    --font-sub: 'Cabin', sans-serif;
+    /* H font sizes not included */
+    --font-size-xxx-large: 2.5rem; /* 40px */
+    --font-size-xx-large: 2rem; /* 32px */
+    --font-size-x-large: 1.5rem; /* 24px */
+    --font-size-large: 1.125rem; /* 18px */
+    --font-size-medium: 1rem; /* 16px */
+    --font-size-small: 0.875rem; /* 14px */
+    --font-size-x-small: 0.75rem; /* 12px */
+    --font-size-xx-small:0.625rem; /* 10px */
+}
+
+
+body{
+    background-color: #FFFFFF;
+}
+body, p { 
+    font-family: var(--font-main, sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font-size-small, 1rem);
+    line-height: 26px;
+    color: var(--color-font-body, #595959);
+}
+body,
+header,
+footer {
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+}
+
+/* inner grid container (1024px) */
+.inner-wrap {
+    max-width: 64em;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 64em) {
+    .inner-wrap {
+        max-width: initial;
+    }
+}
+
+hr {
+    max-width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #E4E6EC;
+}
+
+
+/**********
+[Foundation Style Customization / Overwrite]
+**********/
+/* main grid container (1440px) */
+.grid-container {
+    max-width: 90em;
+    position: relative;
+}
+@media screen and (max-width: 639px) {
+    .grid-container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+/*********
+SweetAlert Style
+*********/
+.swal2-popup .swal2-styled.swal2-confirm.negative {
+    background-color: var(--color-error, #F27474) !important;
+    border: solid 1px var(--color-error, #F27474) !important;
+}
+
+.swal2-popup .swal2-styled.swal2-confirm.green {
+    background-color: var(--color-success, #37B68F) !important;
+    border: solid 1px var(--color-success, #37B68F) !important;
+}
+
+/**********
+[Insites Component Style Customization / Overwrite]
+**********/
+
+.ins-carousel_slides { background-color: initial; }
+.ins-carousel { position: relative; }
+
+ins-button.btn-icon-right .btn__icon {
+    position: absolute;
+    right: 0;
+}
+ins-button.btn-icon-right .btn__label { padding-right: 18px; }
+ins-textarea textarea { min-height: 120px; resize: none; }
+
+ins-input [class*=ins-] label,
+[class*=ins-] label, label,
+.ins-form-field-wrap .ins-form-label  {
+    font-family: var(--font-main, sans-serif);
+    font-weight: 600;
+    font-size: var(--font-size-small, 0.875rem);
+    line-height: 16px;
+    margin-bottom: 7px;
+}
+.ins-form-field-wrap .ins-form-field{
+    font-family: var(--font-main, sans-serif);
+    font-weight: 400;
+}
+ins-button button.blue.solid, 
+ins-button button.primary.solid, 
+ins-button button[type=button].blue.solid, 
+ins-button button[type=button].primary.solid, 
+ins-button button[type=reset].blue.solid, 
+ins-button button[type=reset].primary.solid, 
+ins-button button[type=submit].blue.solid, 
+ins-button button[type=submit].primary.solid {
+    background-color: var(--color-main, #116EC3);
+}
+ins-button+ins-button button {
+    margin-left: 12px;
+}
+
+@media only screen and (max-width: 639px) {
+    .btn-container ins-button button {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 12px;
+    }
+    
+}
+ins-button.full{
+    display:block;
+}
+ins-button.full button{
+    width:100%;
+}
+
+ins-card.full{
+    width:100%;
+}
+
+
+
+.ins-select-wrap.activated .ins-select-options-wrap{
+    z-index: 99999;
+}
+
+.grid-padding-x > .cell ins-checkbox .ins-radio-checkbox,
+.grid-padding-x > .cell ins-radio .ins-radio-checkbox {
+    padding: 0;
+}
+
+/**********[GENERAL / Utilitities]**********/
+/*-- Spacers --*/
+
+.spacer { 
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 24px; 
+}
+.spacer.xx-small{ padding-bottom:4px; }
+.spacer.x-small{ padding-bottom:8px; }
+.spacer.small{ padding-bottom:16px; }
+.spacer.medium { padding-bottom: 24px; }
+.spacer.large { padding-bottom: 32px; }
+.spacer.x-large { padding-bottom: 40px; }
+.spacer.xx-large { padding-bottom: 48px; }
+.spacer.xxx-large { padding-bottom: 56px; }
+.spacer.xxxx-large { padding-bottom: 80px; }
+.spacer.section { padding-bottom: 128px; }
+
+@media screen and (max-width: 64em) { /* 1024px */
+    .spacer.section { padding-bottom: 60px; }
+    .spacer.x-large { padding-bottom: 30px; }
+}
+@media screen and (max-width: 46em) { /* 736px - mobile landscape */
+    .spacer.section { padding-bottom: 45px; }
+    .spacer.x-large { padding-bottom: 30px; }
+}
+.placeholder-img { 
+    background: #F2F4F8;
+    text-align: center;
+    font-size: 48px;
+    color: #CCCED3;
+}
+.vertical-align-middle {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+}
+.btn-full ins-button, .btn-full button {
+    width: 100%;
+}
+.error-message {
+    color: var(--color-info, #F27474);
+    font-family: var(--font-sub, sans-serif);
+    font-size: 12px;
+    line-height: 16px;
+    margin-top: 4px;
+}
+
+/*-- FONTS --*/
+.color-main { color: var(--color-main, #116EC3); }
+.color-success{ color: var(--color-success, #37B68F); }
+.color-error{ color: var(--color-info, #FF3366); }
+.color-warning{ color: var(--color-warning, #FFA639); }
+.color-font-head{ color: var(--color-font-head, #2B2B2B); }
+.color-font-body{ color:var(--color-font-body, #595959); }
+.color-font-inv{ color:var(--color-font-inv, #FFFFFF); }
+
+.font-green { color: #24BE8D; }
+
+.capitalize { text-transform: capitalize; }
+
+a, .link { 
+    color: var(--color-main, #116EC3);
+    cursor: pointer; 
+    transition: ease color 0.2s;
+}
+a:hover, .link:hover {
+    color: var(--color-hover, #105DA3);
+}
+
+a.color-font-head:hover, a.color-font-body:hover,
+a .color-font-head:hover, a .color-font-body:hover {
+    color: var(--color-main, #116EC3);;
+}
+
+/* */
+/*
+.font-heading {
+    font-family: 'Cabin', sans-serif;
+    font-weight: 600;
+    color: #116EC3;
+}
+.font-small{
+    font-size: 14px; 
+    line-height: 17px; 
+}
+.font-medium{ 
+    font-size: 24px; 
+    line-height: 29px; 
+}*/
+.font-heading{
+    font-family: var(--font-sub, sans-serif);
+    font-style: normal;
+    font-weight: 600;
+    font-size: var(--font-size-x-large, 1.5rem);
+    line-height: 29px;
+}
+.font-body-large{
+    font-family: var(--font-sub, sans-serif);
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--font-size-medium, 1rem);
+    line-height: 24px;
+}
+.font-body-small{
+    font-family: var(--font-sub, sans-serif);
+    font-style: normal;
+    font-weight: normal;
+    font-size: var(--font-size-x-small, 0.75rem);
+    line-height: 15px;
+}
+.font-link{
+    color: var(--color-main, #116EC3);
+    text-decoration-line: underline;
+}
+
+/* Heading */
+
+h1, h2, h3, h4, h5, h6, p, ul, li, ol, dl { margin-bottom: 0; }
+
+h1, .h1-font, h2, .h2-font, h3, .h3-font, h4, .h4-font, h5, .h5-font, h6, .h6-font{
+    font-family: var(--font-main, sans-serif);
+    font-weight: 600;
+    color: var(--color-font-head, #2B2B2B);
+}
+h1, .h1-font {
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+h2, .h2-font {
+    font-size: 2rem;
+    line-height: 2.375rem;
+}
+h3, .h3-font {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+h4, .h4-font {
+    font-size: 1.375rem;
+    line-height: 1.625rem;
+}
+h5, .h5-font {
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+}
+h6, .h6-font {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+}
+
+.centered {
+    text-align: center;
+}
+
+/**********
+[Foundation Style Customization / Overwrite]
+**********/
+/* main grid container (1440px) */
+.grid-container {
+    max-width: 90em;
+    position: relative;
+}

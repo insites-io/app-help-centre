@@ -1,0 +1,49 @@
+{%- comment -%}
+Technical head holds all 'General / Global' assets / dependencies refererenced 
+within <head> such as scripts, CSS, font references, favicons, Insites dependencies, etc. 
+(Insites assets, GTM, etc..)
+
+We try to limit assets that are part of the technical head to minimize page size 
+& improve page performance.
+
+Assets like 'Google Map API', should only be referenced as needed.
+- Managed on the 'page / layout' level
+{%- endcomment -%}
+
+{%- comment -%} Foundation {%- endcomment -%}
+{%- comment -%} CSS Style {%- endcomment -%}
+{%- if context.environment == "staging" -%}
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/vendor/foundation.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/styleguide.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/app.css' | asset_url }}">
+{%- else -%}
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/vendor/foundation.min.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/styleguide.min.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'modules/ins_template_help_centre/styles/app.min.css' | asset_url }}">   
+{%- endif -%}
+
+{%- comment %} 
+Insites assets holds all Insites related assets / dependencies.
+Includes but not limited to: fonts, scripts, stylesheets, etc..
+{%- endcomment %}
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" >
+<link href="https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,700;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+
+<!-- Font Icons -->
+<link rel="stylesheet" href="https://components.insites.io/v2/latest/css/insites-font-icons.css">
+
+<!-- Components -->
+<link rel="stylesheet" href="https://components.insites.io/v2/latest/css/insites.css" />
+<script type="module" src="https://components.insites.io/v2/latest/insites.esm.js"></script>
+<script nomodule src="https://components.insites.io/v2/latest/insites.js"></script>
+
+<script src="https://components.insites.io/insites_utilities.js"></script>
+<script src="https://components.insites.io/S3UploaderService.js" defer></script>
+
+<!-- App -->
+<!-- <link rel="preload" as="script" href="{{ 'modules/ins_template_help_centre/scripts/app.js' | asset_url }}" /> -->
+<!-- <script src="{{ 'modules/ins_template_help_centre/scripts/app.js' | asset_url }}"></script> -->

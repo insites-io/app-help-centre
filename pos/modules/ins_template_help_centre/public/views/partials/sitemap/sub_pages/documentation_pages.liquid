@@ -1,0 +1,26 @@
+{%- comment -%}
+Blog posts sitemap
+{%- endcomment -%}
+
+{%- assign parent_slug = "/documentation" -%}
+{%- capture date_now -%}
+    {{ 'today' | to_time }}
+{%- endcapture -%}
+{%- graphql blog_list = 'modules/ins_template_help_centre/sitemap/get_documentation_pages', date_comp: date_now -%}
+
+{%- if blog_list.items.total_entries > 0 -%}
+
+    {%- comment -%}Loop pagination{%- endcomment -%}
+    {%- for page in (1..blog_list.items.total_pages) -%}
+        {%- for item in blog_list.items.results -%}
+            {%- if item.slug != blank and item.slug != '' and item.slug != null -%}
+                <url>
+                    <loc>https://{{ context.location.host }}{{ parent_slug }}/{{ item.slug }}</loc>
+                    {%- comment -%}Last data modified: 'YYYY-MM-DD' {%- endcomment -%}
+                    <lastmod>{{ item.updated_at | date: '%Y-%m-%d' }}</lastmod>
+                </url> 
+            {%- endif -%}
+        {%- endfor -%}
+    {%- endfor -%}
+
+{%- endif -%}

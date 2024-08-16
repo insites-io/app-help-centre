@@ -1,0 +1,36 @@
+mutation create_faq(
+  $question: String,
+  $answer: String,
+  $sort_order: Int,
+  $featured: Boolean
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/faqs",
+      properties: [
+        { 
+          name: "question",
+          value: $question
+        }
+        { 
+          name: "answer",
+          value: $answer
+        }
+        { 
+          name: "category",
+          value: "Order" 
+        }
+        { 
+          name: "sort_order",
+          value_int: $sort_order 
+        }
+        { 
+          name: "featured",
+          value_boolean: $featured 
+        }
+      ]
+    }
+  ) {
+      id
+    }
+}

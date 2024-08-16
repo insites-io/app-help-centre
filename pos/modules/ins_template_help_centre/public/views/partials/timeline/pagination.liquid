@@ -1,0 +1,60 @@
+{%- assign per_pages = "[10,20,50]" | parse_json -%}
+{%- assign params = "" | split: "," -%}
+{%- assign slug = "" -%}
+
+{%- if context.params.slug != "change-log" -%}
+    {%- assign slug = context.params.slug | prepend: "/" -%}
+{%- endif -%}
+
+{% for param in context.location.search %}
+    {%- if param[0] != "page" -%}
+        {%- assign str = param[0] | append: '=' | append: param[1] -%}
+        {%- assign params = params | add_to_array: str -%}
+    {%- endif -%}
+{% endfor %}
+
+{%- assign params = params | join: "&" -%}
+{%- if params != blank -%}
+    {%- assign params = params | prepend: "&" -%}
+{%- endif -%}
+
+<div class="layout-pagination">
+    <label for="per_page">Items per page:</label>
+    <select id="per-page-select" name="per_page">
+        {%- for item in per_pages -%}
+            <option value="{{ item }}" 
+                {% if item == per_page %}selected{% endif %} >
+
+                {{ item }}
+            </option>
+        {%- endfor -%}
+    </select>
+
+    {%- assign to = data.per_page | times: data.current_page -%}
+    {%- assign from = to | minus: data.per_page | plus: 1 -%}
+    <span>
+        {{ from }}-{{ to }} of {{ data.total_entries }}
+    </span>
+    
+    {%- if data.has_previous_page == true -%}
+    
+        <a class="color-font-head"
+            href="{{ slug }}/change-log?page={{ data.current_page | minus: 1 }}{{ params }}">
+
+            <span class="icon-chevron-left"></span>
+        </a>
+    {%- else -%}
+        <span class="icon-chevron-left"></span>
+    {%- endif -%}
+
+    {%- if data.has_next_page == true -%}
+        <a class="color-font-head"
+            href="{{ slug }}/change-log?page={{ data.current_page | plus: 1 }}{{ params }}">
+
+            <span class="icon-chevron-right"></span>
+        </a>
+    {%- else -%}
+        <span class="icon-chevron-right"></span>
+    {%- endif -%}
+
+</div>

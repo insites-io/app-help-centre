@@ -1,0 +1,77 @@
+mutation create_documentation(
+  $slug: String,
+  $title: String,
+  $author:String,
+  $publish_date: String,
+  $short_description: String,
+  $content:String,
+  $status: String,
+  $order: Int,
+  $menu_label: String,
+  $parent_category: String,
+  $section: String,
+  $shown_in_sidebar_menu: Boolean,
+  $shown_in_footer_menu: Boolean
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/documentation",
+      properties: [
+        { 
+          name: "slug",
+          value: $slug
+        },
+        { 
+          name: "title",
+          value: $title
+        },
+        { 
+          name: "author",
+          value: $author
+        },
+        { 
+          name: "publish_date",
+          value: $publish_date 
+        },
+        { 
+          name: "short_description",
+          value: $short_description 
+        },
+        { 
+          name: "content",
+          value: $content 
+        },
+        { 
+          name: "status",
+          value: $status 
+        },
+        { 
+          name: "order",
+          value_int: $order 
+        },
+        { 
+          name: "menu_label",
+          value: $menu_label 
+        },
+        { 
+          name: "parent_category",
+          value: $parent_category 
+        },
+        { 
+          name: "section",
+          value: $section 
+        },
+        { 
+          name: "shown_in_sidebar_menu",
+          value_boolean: $shown_in_sidebar_menu 
+        },
+        { 
+          name: "shown_in_footer_menu",
+          value_boolean: $shown_in_footer_menu 
+        }
+      ]
+    }
+  ) {
+      id
+    }
+}

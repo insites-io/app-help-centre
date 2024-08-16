@@ -1,0 +1,41 @@
+{%- comment -%}
+This is the partial for the three card acting as button to redirect somewhere.
+{%- endcomment -%}
+
+{%- graphql useful_links = "modules/ins_template_help_centre/useful_links/get_useful_links" -%}
+
+<div class="grid-container useful-links">
+	<div class="spacer xx-large"></div>
+	<h2 class="centered">Useful Links</h2>
+	<div class="spacer xxx-large"></div>
+
+	<div class="grid-x grid-padding-x">
+		{%- for item in useful_links.items.results -%}
+			<div class="large-4 medium-6 small-12 cell spacer small {% if forloop.last == true %}large-offset-0 medium-offset-3{% endif %} ">
+				<a href="{{ item.url }}" target="_blank">
+					<ins-card>
+						<div class="centered">
+							<div class="spacer small"></div>
+							<div>
+								{%- if item.custom_icon.url or item.icon -%}
+									{%- if item.custom_icon.url -%}
+										<img class="card-img" src="{{item.custom_icon.url}}">
+									{%- else -%}
+										<span class="{{ item.icon }}"></span>
+									{%- endif -%}
+								{%- else -%}
+									<span class="icon-globals"></span>
+								{%- endif -%}	
+									
+							</div>
+							<div class="spacer small"></div>
+							<h3>{{ item.label }}</h3>
+							<div class="spacer small"></div>
+						</div>
+					</ins-card>
+				</a>
+			</div>
+		{%- endfor -%}
+	</div>
+	<div class="spacer xxxx-large"></div>
+</div>

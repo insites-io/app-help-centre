@@ -1,0 +1,27 @@
+mutation create_tag(
+  $name: String,
+  $color: String,
+  $icon: String
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/tags",
+      properties: [
+        { 
+          name: "name",
+          value: $name
+        }
+        { 
+          name: "color",
+          value: $color
+        }
+        { 
+          name: "icon",
+          value: $icon
+        }
+      ]
+    }
+  ) {
+      id
+    }
+}

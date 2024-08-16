@@ -1,0 +1,65 @@
+query get_articles(
+  $page: Int = 1, 
+  $size: Int = 10, 
+  $category: String, 
+  $date_now: String
+) {
+  items: models(
+    page: $page,
+    per_page: $size,
+    filter: {
+      deleted_at: {
+        exists: false
+      },
+      model_schema_name: {
+        value: "modules/ins_template_help_centre/articles"
+      },
+      properties: [
+        { 
+          name: "status",
+          value: "Published" 
+        },
+        { 
+          name: "category",
+          value: $category 
+        },
+        { 
+          name: "publish_date",
+          range: {
+            lte: $date_now
+          } 
+        }
+      ]
+    },
+    sort: [
+      { 
+        properties: {
+          name: "publish_date",
+          order: DESC
+        }
+      }
+      {
+        properties: {
+          name: "sort_order",
+          order: ASC
+        }
+      }
+    ]
+  ) {
+      total_entries
+      total_pages
+      current_page
+      has_next_page
+      has_previous_page
+      per_page
+      results {
+        post_title: property(name: "post_title")
+        short_text: property(name: "short_text")
+        description: property(name: "description")
+        slug: property(name: "slug")
+        category: property(name: "category")
+        author: property(name: "author")
+        publish_date: property(name: "publish_date")
+      }
+    }
+}

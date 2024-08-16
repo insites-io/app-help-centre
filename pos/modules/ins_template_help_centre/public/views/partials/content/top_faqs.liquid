@@ -1,0 +1,45 @@
+{%- comment -%}
+    This is a partial to get the top faqs in the database.
+    with parameter page:1 (for the first page), and size:5 (to limit the first five).
+    Then looped for display.
+{%- endcomment -%}
+{%- graphql top_faqs = 'modules/ins_template_help_centre/faqs/get_faqs' 
+    page: 1,
+    size: 5
+    featured: true,
+    status: "Published"
+ -%}
+{%- if top_faqs.items.results.size > 0 -%}
+    {%- assign top_faqs = top_faqs.items.results -%}
+    <div class="faqs">
+        <h2>Top FAQs</h2>
+        <div class="spacer small"></div>
+        <a href="/faqs" class="view-all">View All</a>
+        <div class="spacer x-large"></div>
+
+        <ins-accordion>
+            {%- for item in top_faqs -%}
+                <ins-accordion-item heading="{{ item.question }}">
+                    {{ item.answer }}
+                    {%- if item.file_download.url -%}
+                        <div class="spacer small"></div>
+                        <hr />
+                        <div class="spacer small"></div>
+                        <div class="grid-x grid-padding-x container">
+                            <div class="small-7 medium-6 large-9 cell">
+                                {{ item.pdf_description }}
+                            </div>
+                            <div class="small-5 medium-6 large-3 cell text-right">
+                                <a href="{{ item.file_download.url}}" target="_blank">
+                                    <ins-button icon="icon-file-download" label="DOWNLOAD" solid size="small">
+                                    </ins-button>
+                                </a>
+                            </div>
+                        </div>
+                    {%- endif -%}
+                </ins-accordion-item>
+            {%- endfor -%}
+        </ins-accordion>
+        <div class="spacer xxxx-large show-for-small-only"></div>
+    </div>
+{%- endif -%}

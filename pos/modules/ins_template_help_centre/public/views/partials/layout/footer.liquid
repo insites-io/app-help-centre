@@ -1,0 +1,127 @@
+{%- parse_json filter -%}
+    {
+        "value_boolean": true,
+        "name": "shown_in_footer_menu"
+    }      
+{%- endparse_json -%}
+{%- graphql database_documentation = 'modules/ins_template_help_centre/documentation/get_documentation' 
+    properties: filter
+-%}
+{%- assign documentations = database_documentation.items.results -%}
+
+<footer>
+    <div class="footer-links">
+        <hr />
+        <div class="grid-container">
+            <div class="spacer xxxx-large"></div>
+            
+            <div class="grid-x grid-padding-x">
+                <div class="large-4 medium-12 small-12 cell">
+                    <a href="/">
+                        <img class="logo" src="{{ context.exports.global.company_logo.original }}" alt="{{ context.exports.global.company_slogan }}" />
+                    </a>
+                    <div class="spacer large show-for-medium-only"></div>
+
+                </div>
+
+                <div class="large-4 medium-12 small-12 cell">
+                    <h5>Documentation</h5>
+                    <div class="spacer medium"></div>
+                    <div class="grid-x">
+                        {%- for documentation in documentations -%}
+                            {%- if documentation.parent_category == null -%}
+                                <div class="large-6 medium-6 small-12 cell">
+                                    <ul>
+                                        <li>
+                                            <a href="/documentation/{{- documentation.slug -}}">{{ documentation.title }}</a>
+                                            <div class="spacer small"></div>
+                                        </li>
+                                        {%- for child_category in documentations -%}
+                                            {%- if child_category.parent_category == documentation.title -%}
+                                            <ul>
+                                                <li>
+                                                    <a href="/documentation/{{- child_category.slug -}}">{{- child_category.title -}}</a>
+                                                    <div class="spacer small"></div>
+                                                </li>
+                                            </ul>
+                                            {%- endif -%}
+                                        {%- endfor -%}
+                                    </ul>
+                                </div>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </div>
+                    <div class="spacer large show-for-medium-only"></div>
+                </div>
+
+                <div class="large-4 medium-12 small-12 cell">
+                    <div class="grid-x">
+                        <div class="large-6 medium-6 small-12 cell">
+                            <h5>Links</h5>
+                            <div class="spacer medium"></div>
+                            <ul>
+                                <li>
+                                    <a href="/faqs">FAQs</a>
+                                    <div class="spacer small"></div>
+                                </li>
+                                <li>
+                                    <a href="/articles">Articles</a>
+                                    <div class="spacer small"></div>
+                                </li>
+                                <li>
+                                    <a href="/timeline">Timeline</a>
+                                    <div class="spacer small"></div>
+                                </li>
+                                <li>
+                                    <a href="/contact-us">Contact Us</a>
+                                    <div class="spacer small"></div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="large-6 medium-6 small-12 cell">
+                            <h5>Discover</h5>
+                            <div class="spacer medium"></div>
+                            <ul>
+                                <li>
+                                    <a href="/" target="_blank">Website &nbsp;<span class="icon-external-link"></span></a>
+                                    <div class="spacer small"></div>
+                                </li>
+                                <li>
+                                    <a href="/" target="_blank">Community &nbsp;<span class="icon-external-link"></span></a>
+                                    <div class="spacer small"></div>
+                                </li>
+                                <li>
+                                    <a href="/" target="_blank">Roadmap &nbsp;<span class="icon-external-link"></span></a>
+                                    <div class="spacer small"></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="spacer xxxx-large"></div>
+    </div>
+
+    <div class="footer">
+        <div class="grid-container">
+            <div class="grid-x grid-padding-x">
+                <div class="small-12 large-8 medium-8 cell">
+                    <a href="http://example.com" target="_blank" class="footer-link">
+                        ABN 12 345 678 910
+                    </a>
+                    <a href="http://example.com" target="_blank" class="footer-link">
+                        Privacy Policy
+                    </a>
+                    <a href="http://example.com" target="_blank" class="footer-link">
+                        Terms and Conditions
+                    </a>
+                </div>
+                <div class="small-12 large-4 medium-4 cell text-right">
+                    <span class="copyright">Copyright © {{ "now" | date: "%Y" }} Insites Templates.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</footer>

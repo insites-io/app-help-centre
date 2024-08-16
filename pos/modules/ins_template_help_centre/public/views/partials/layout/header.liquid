@@ -1,0 +1,27 @@
+<header class="header">
+    <div class="top-bar grid-container">
+        <div class="top-bar-left">
+            <a href="/">
+                <img class="logo" src="{{ context.exports.global.company_logo.original }}" 
+                    alt="{{ context.exports.global.company_slogan }}" />
+            </a>
+        </div>
+        <div class="top-bar-right">
+            <div class="show-for-large">
+		    	{% include 'modules/ins_template_help_centre/layout/menu_items' %}
+            </div>
+            <div class="hide-for-large mobile-menu-toggle">
+                <div id="mobile-menu-btn" class="icon-menu-1"></div>
+				<ins-drawer no-padding
+				 	backdrop-can-close="false"
+					id="mobile-menu" 
+					show-header=false
+					position="right">
+					<div>
+		    			{% include 'modules/ins_template_help_centre/layout/menu_items' %}
+					</div>
+				</ins-drawer>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,25 @@
+---
+slug: fragments/sidebar
+layout_name: ''
+response_headers: >
+  {
+    "Content-Type": "text/html"
+  }
+dynamic_cache:
+  layout: true
+  key: >
+    {%- assign title = context.params.title | default: '' -%}
+    {%- assign schema_name = title | downcase | replace: " ", "_" -%}
+    {%- assign database_schema = 'modules/ins_template_help_centre/' | append: schema_name -%}
+    {%- graphql res = 'modules/ins_template_help_centre/sidebar/get_latest', database_schema: database_schema -%}
+    {%- assign record = res.items.results.first -%}
+    {{ 'sidebar_cached_' | append: record.updated_at }}
+---
+{%- assign title = context.params.title | default: '' -%}
+{%- assign current_slug = context.params.current_slug | default: '' -%}
+{%- assign parent_slug = context.params.parent_slug | default: '' -%}
+
+{%- include 'modules/ins_template_help_centre/content/sidebar/documentation_sidebar', 
+    title: title,
+    parent_slug: parent_slug,
+    current_slug: current_slug -%}

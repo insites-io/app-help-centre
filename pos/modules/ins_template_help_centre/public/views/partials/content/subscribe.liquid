@@ -1,0 +1,41 @@
+{%- comment -%}
+    This is a partial for the tracking of package, with javascript function to trigger
+    the event with the button click or on key press enter(keyCode == 13).
+{%- endcomment -%}
+<div class="subscribe">
+    <div class="grid-container">
+        <div class="grid-x grid-padding-x">
+            <div class="large-12 medium-12 small-12">
+                <div class="spacer xxxx-large"></div>
+                <h2 class="centered">Stay up to date with Insites</h2>
+                <div class="spacer small"></div>
+            </div>
+
+            <div class="large-12 medium-12 small-12">
+                <p class="centered">Subscribe to our newsletter for the latest news and product updates straight to your inbox.</p>
+                <div class="spacer large"></div>
+            </div>
+
+            <div class="large-7 medium-7 small-12 large-offset-2 medium-offset-1 cell">
+                <ins-input
+                    id="subscribe-input"
+                    placeholder="Enter your Email Address"
+                    field="text"
+                    error-message="Please provide a valid Email Address.">
+                </ins-input>
+            </div>
+            
+            <div class="large-3 medium-4 small-12 cell">
+                <ins-button
+                    id="subscribe-button"
+                    label="Subscribe"
+                    size="large"
+                    solid
+                    color="blue"
+                    size="normal">
+                </ins-button>
+                <div class="spacer xxxx-large"></div>
+            </div>
+        </div>
+    </div>
+</div>

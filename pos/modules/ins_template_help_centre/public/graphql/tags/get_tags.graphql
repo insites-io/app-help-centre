@@ -1,0 +1,18 @@
+query get_tags {
+  items: models(
+    per_page: 100,
+    filter: {
+      deleted_at: {
+        exists: false
+      },
+      model_schema_name: {
+        value: "modules/ins_template_help_centre/tags"
+      }
+    }
+  ) {
+    results {
+      id
+      name: property(name: "name")
+    }
+  }
+}

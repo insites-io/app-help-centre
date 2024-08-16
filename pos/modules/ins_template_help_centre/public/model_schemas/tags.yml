@@ -1,0 +1,84 @@
+name: tags
+metadata:
+  label: "Tags"
+  groups: []
+  is_enabled: true
+properties:
+- name: color
+  type: string
+  metadata:
+    type: ""
+    label: "Color"
+    status: "enabled"
+    values: []
+    weight: 1
+    group_id: ""
+    is_header: true
+    mock_data: ""
+    is_enabled: ""
+    validation: ""
+    is_required: true
+    is_sortable: true
+    placeholder: ""
+    primary_key: ""
+    example_data: ""
+    default_value: ""
+    display_field: ""
+    error_message: ""
+    is_searchable: false
+    character_limit: ""
+    reference_field: ""
+    description_notes: ""
+    help_text_tooltip: "Choose the color for the tag. You can enter the name of a cCSS olour that is supported. https://www.w3.org/wiki/CSS/Properties/color/keywords"
+- name: icon
+  type: string
+  metadata:
+    type: ""
+    label: "Icon"
+    status: "enabled"
+    values: []
+    weight: 2
+    group_id: ""
+    is_header: true
+    mock_data: ""
+    is_enabled: ""
+    validation: ""
+    is_required: true
+    is_sortable: true
+    placeholder: ""
+    primary_key: ""
+    example_data: ""
+    default_value: ""
+    display_field: ""
+    error_message: ""
+    is_searchable: false
+    character_limit: ""
+    reference_field: ""
+    description_notes: ""
+    help_text_tooltip: "Enter the name of the Insites Icon from the Insites Component Library for the tag."
+- name: name
+  type: string
+  metadata:
+    type: ""
+    label: "Name"
+    status: "enabled"
+    values: []
+    weight: 0
+    group_id: ""
+    is_header: true
+    mock_data: ""
+    is_enabled: ""
+    validation: ""
+    is_required: true
+    is_sortable: true
+    placeholder: ""
+    primary_key: ""
+    example_data: ""
+    default_value: ""
+    display_field: ""
+    error_message: ""
+    is_searchable: false
+    character_limit: ""
+    reference_field: ""
+    description_notes: ""
+    help_text_tooltip: ""

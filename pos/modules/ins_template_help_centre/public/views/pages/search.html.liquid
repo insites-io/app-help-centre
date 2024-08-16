@@ -1,0 +1,79 @@
+---
+slug: search
+layout: modules/ins_template_help_centre/default_layout
+searchable: true
+max_deep_level: 2
+metadata: {
+    page_title: "Search",
+    meta_title: "Search",
+    description: "Search",
+    canonical_url: "",
+    status: "published",
+    searchable: "true",
+    search_engine_visibility: "true",
+    sitemap_priority: 1.0, ## primary order (DESC)
+    sitemap_order: 1002, ## secondary order (ASC)
+    sitemap_changefreq: "always"
+}
+enable_profiler: true
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_site_manager/insites_global_content",
+      "modules/ins_template_help_centre/articles",
+      "modules/ins_template_help_centre/documentation",
+      "modules/ins_template_help_centre/faqs"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+{%- comment -%}
+This is where the contents of the search page is imported/included in the forms of partials.
+{%- endcomment -%}
+
+{%- assign keyword = context.params.keyword -%}
+{%- assign faq_page = context.params.fp | default: 1 | plus: 0 -%}
+{%- assign article_page = context.params.ap | default: 1 | plus: 0 -%}
+{%- assign documentation_page = context.params.dp | default: 1 | plus: 0 -%}
+{%- assign search_per_page = context.params.per_page | default: 5 | plus: 0 -%}
+
+{%- graphql faq_search_result = 'modules/ins_template_help_centre/search/search_keyword_faqs' 
+    schema: 'modules/ins_template_help_centre/faqs', 
+    keyword: keyword, 
+    page: faq_page,
+    size: search_per_page
+    status: "Published"
+-%}
+{%- graphql articles_search_result = 'modules/ins_template_help_centre/search/search_keyword_articles' 
+    schema: 'modules/ins_template_help_centre/articles', 
+    keyword: keyword, 
+    page: article_page,
+    size: search_per_page
+-%}
+
+{%- graphql documentation_search_result = 'modules/ins_template_help_centre/search/search_keyword_documentation' 
+    schema: 'modules/ins_template_help_centre/documentation', 
+    keyword: keyword, 
+    page: documentation_page,
+    size: search_per_page
+-%}
+
+{%- include 'modules/ins_template_help_centre/search/searchpage_banner' -%}
+{%- if keyword != "" or keyword != blank  -%}
+    <div class="grid-x grid-padding-x pt-3 pb-6 container">
+        <div class="small-12 medium-12 large-8 
+            large-offset-2 small-offset-0 medium-offset-1 cell pb-5">
+                {%- include 'modules/ins_template_help_centre/search/search_result/search_result_documentation', 
+                    documentation_search_result: documentation_search_result.items 
+                -%}
+                {%- include 'modules/ins_template_help_centre/search/search_result/search_result_faq', 
+                    faq_search_results: faq_search_result.items 
+                -%}
+                {%- include 'modules/ins_template_help_centre/search/search_result/search_result_articles', 
+                    articles_search_results: articles_search_result.items 
+                -%}
+        </div>
+    </div>
+{%- endif -%}

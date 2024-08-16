@@ -1,0 +1,24 @@
+{%- graphql res = "modules/ins_template_help_centre/timeline/get_timeline_schema" -%}
+{%- assign props = res.items.results.first.properties -%}
+
+{% for prop in props %}
+    {%- if prop.name == "category" -%}
+        {%- assign options = "All" | split: ',' -%}
+        {%- assign options = options | add_to_array: prop.metadata.values | flatten -%}
+        {%- assign category = context.params.category | default: "" -%}
+        {%- assign has_category = options | any: category -%}
+
+        {%- if category == "All" or has_category == false -%}
+            {%- assign category =  "" -%}
+        {%- endif -%}
+
+        {%- export category, namespace: 'filters' -%}
+
+        <ins-filter-item
+            name="Category" selected="{{ category }}"
+            options='{{ options }}'>
+        </ins-filter-item>
+        {%- break -%}
+        
+    {%- endif -%}
+{% endfor %}

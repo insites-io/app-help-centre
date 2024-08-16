@@ -1,0 +1,34 @@
+query get_faq_pages (
+  $page: Int = 1, 
+  $per_page: Int = 200
+) {
+  items: models(
+    page: $page,
+    per_page: $per_page,
+    filter: {
+      model_schema_name: { 
+        value: "modules/ins_template_help_centre/faqs"
+      },
+      deleted_at: { 
+        exists: false
+      }
+    },
+    sort: [
+      { 
+        properties: { 
+          name: "sort_order",
+          order: ASC 
+        } 
+      }
+    ]
+  ) {
+      total_entries
+      total_pages
+      per_page
+      current_page
+      results {
+        updated_at
+        slug: property(name: "slug")
+      }
+    }
+}

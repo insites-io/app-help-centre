@@ -1,0 +1,28 @@
+query get_useful_links {
+  items: models(
+    page: 1,
+    per_page: 9, 
+    filter: {
+      deleted_at: { exists: false },
+      model_schema_name: { value: "modules/ins_template_help_centre/useful_links" }
+    }, 
+    sort: [
+      { properties: { name: "sort_order", order: ASC } }
+    ]
+  ) {
+      total_entries
+      total_pages
+      current_page
+      has_next_page
+      has_previous_page
+      results {
+        url: property(name: "url")
+        icon: property(name: "icon")
+        label: property(name: "label")
+        sort_order: property(name: "sort_order")
+        custom_icon: property_upload(name: "custom_icon"){
+          url
+        }
+      }
+    }
+}

@@ -1,0 +1,34 @@
+query get_contact_us_attachment(
+  $page: Int = 1,
+  $size: Int = 1,
+  $id: ID!
+) {
+  items: models(
+    page: $page,
+    per_page: $size,
+    filter: {
+      deleted_at: {
+        exists: false
+      },
+      id: { 
+        value: $id
+      },
+      model_schema_name: {
+        value: "modules/ins_template_help_centre/contact_us"
+      }
+    }
+  ) {
+      total_entries
+      total_pages
+      current_page
+      has_next_page
+      has_previous_page
+      per_page
+      results {
+        attachment: property_upload(name: "attachment"){
+          url
+          file_name
+        }
+      }
+    }
+}

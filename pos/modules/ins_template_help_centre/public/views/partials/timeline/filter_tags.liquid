@@ -1,0 +1,19 @@
+{%- graphql res = "modules/ins_template_help_centre/tags/get_tags" -%}
+{%- assign tags = res.items.results -%}
+{%- export tags -%}
+
+{%- assign tags = tags | map: "name" -%}
+{%- assign options = "All" | split: "," -%}
+{%- assign options = options | add_to_array: tags | flatten -%}
+{%- assign tag = context.params.tag | default: "" -%}
+
+{%- if tag == "All" -%}
+    {%- assign tag =  "" -%}
+{%- endif -%}
+
+{%- export tag, namespace: 'filters' -%}
+
+<ins-filter-item
+    name="Tag" selected="{{ tag }}"
+    options='{{ options }}'>
+</ins-filter-item>

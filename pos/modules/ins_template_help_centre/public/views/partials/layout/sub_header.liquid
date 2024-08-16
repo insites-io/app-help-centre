@@ -1,0 +1,53 @@
+<div class="sub-header"> 
+    <div class="grid-container">
+        <div class="spacer small"></div>
+        <div class="grid-x grid-padding-x">
+            <div class="layout-breadcrumbs large-9 medium-7 small-12 large-order-1 medium-order-1 small-order-2 cell">
+                <a class="color-font-head" href="/">Help Centre</a>
+                <span class="icon-chevron-right"></span>
+                
+                {%- include 'modules/ins_template_help_centre/layout/breadcrumbs' -%}
+            </div>
+            <div class="large-3 medium-5 small-12 large-order-2 medium-order-2 small-order-1 cell">
+                <ins-input
+                    id="search-input"
+                    placeholder="What are you looking for?"
+                    field="text"
+                    icon="icon-search"
+                    icon-event="true"
+                    error-message="Search Keyword cannot be blank">
+                </ins-input>
+                <div class="spacer medium show-for-small-only"></div>
+            </div>
+        </div>
+        <div class="spacer small"></div>
+    </div>
+</div>
+
+{%- comment -%}
+<script>
+    var searchKey = document.getElementById('search-input');
+    function goToSearch (){
+        var empty = checkIfEmpty(searchKey.value);
+        if (!empty){
+            window.location.href = "/search?keyword=" + searchKey.value;
+        }
+    }
+    function checkIfEmpty(searchString){
+        if(searchKey.value == ""){
+            searchKey.setAttribute("has-error", "");
+            return true;
+        }else{
+            searchKey.removeAttribute("has-error");
+            return false;
+        }
+    }
+    searchKey.addEventListener('insIconClick', goToSearch);
+    searchKey.addEventListener('insInput', e => {
+        if (e.detail.keyCode === 13) goToSearch();
+    });
+    searchKey.addEventListener('insValueChange', e => {
+        checkIfEmpty(searchKey.value);
+    });
+</script>
+{%- endcomment -%}

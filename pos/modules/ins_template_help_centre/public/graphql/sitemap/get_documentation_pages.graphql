@@ -1,0 +1,46 @@
+query get_documentation_pages (
+  $page: Int = 1, 
+  $per_page: Int = 200,
+  $status: String = "Published",
+  $date_comp: String
+) {
+  items: models(
+      page: $page,
+      per_page: $per_page,
+      filter: {
+        model_schema_name: { 
+          value: "modules/ins_template_help_centre/documentation"
+        },
+        deleted_at: { 
+          exists: false 
+        },
+        properties: [
+          { 
+            name: "status",
+            value: $status 
+          },
+          { 
+            name: "publish_date",
+            range: { 
+              lte: $date_comp
+            } 
+          }
+        ]
+      },
+      sort: {
+        properties: { 
+          name: "publish_date",
+          order: DESC
+        } 
+      }
+  ) {
+      total_entries
+      total_pages
+      per_page
+      current_page
+      results {
+        updated_at
+        slug: property(name: "slug")
+      }
+    }
+}

@@ -1,0 +1,102 @@
+---
+slug: faqs
+layout: modules/ins_template_help_centre/default_layout
+searchable: true
+max_deep_level: 3
+metadata: {
+  page_title: "FAQs",
+  meta_title: "FAQs",
+  description: "FAQs",
+  canonical_url: "",
+  status: "published",
+  searchable: "true",
+  search_engine_visibility: "true",
+  sitemap_priority: 1.0, ## primary order (DESC)
+  sitemap_order: 1003, ## secondary order (ASC)
+  sitemap_changefreq: "always"
+}
+enable_profiler: true
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_site_manager/insites_global_content",
+      "modules/ins_template_help_centre/faqs",
+      "modules/ins_template_help_centre/documentation"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+{%- assign category = context.params.category -%}
+<div class="faqs grid-container">
+	<div class="spacer xx-large"></div>
+	<h1 class="centered">
+		Frequently Asked Questions 
+	</h1>
+
+	<div class="spacer xxxx-large"></div>
+	<div class="grid-x grid-padding-x">
+		<div class="small-12 medium-4 large-3 cell">
+			{%- include 'modules/ins_template_help_centre/content/sidebar/category_sidebar',
+				database_name: "modules/ins_template_help_centre/faqs",
+				all_link: context.page.slug,
+				title: "FAQs"
+			-%}
+		</div>
+		<div class="small-12 medium-8 large-9 cell">
+			{%- if category -%}
+				<h2 class="hide-for-small-only">{{ category }}</h2>
+			{%- endif -%}
+			<div class="spacer large"></div>
+
+			{%- assign page = context.params.page | default: 1 | plus: 0 -%}
+			{%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
+
+			{%- graphql faqs = 'modules/ins_template_help_centre/faqs/get_faqs' 
+				page: page,
+				size: per_page,
+				category: context.params.category
+				status: "Published"
+			-%}
+
+			{%- if faqs.items.results.size == 0 -%}
+				{%- if category != blank -%}
+					<p>No results found for {{ category }}.</p>
+				{%- else -%}
+					<p>No results found within FAQs.</p>
+				{%- endif -%}
+			{%- else -%}
+				<ins-accordion>
+					{%- for faq in faqs.items.results -%}
+						<ins-accordion-item heading="{{ faq.question }}">
+							{{ faq.answer }}
+							{%- if faq.file_download.url -%}
+								<div class="spacer small"></div>
+								<hr />
+								<div class="spacer small"></div>
+								<div class="grid-x grid-padding-x container">
+									<div class="small-7 medium-6 large-9 cell">
+										{{ faq.pdf_description }}
+									</div>
+									<div class="small-5 medium-6 large-3 cell text-right">
+										<a href="{{ faq.file_download.url}}" target="_blank">
+											<ins-button icon="icon-file-download" label="DOWNLOAD" solid size="small">
+											</ins-button>
+										</a>
+									</div>
+								</div>
+							{%- endif -%}
+						</ins-accordion-item>
+					{%- endfor -%}
+				</ins-accordion>
+    			<div class="spacer xx-large"></div>
+				
+				{%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+					data: faqs.items,
+					per_page: per_page -%}
+			{%- endif -%}
+		</div>
+	</div>
+	<div class="spacer xxxx-large"></div>
+</div>

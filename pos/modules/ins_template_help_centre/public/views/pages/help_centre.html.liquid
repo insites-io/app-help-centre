@@ -1,0 +1,62 @@
+---
+slug: /
+layout: modules/ins_template_help_centre/default_layout
+searchable: true
+max_deep_level: 2
+metadata: {
+  page_title: "Help Centre",
+  meta_title: "Help Centre",
+  description: "Help Centre",
+  canonical_url: "",
+  status: "published",
+  searchable: "true",
+  search_engine_visibility: "true",
+  sitemap_priority: 1.0, ## primary order (DESC)
+  sitemap_order: 1001, ## secondary order (ASC)
+  sitemap_changefreq: "always"
+}
+enable_profiler: true
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_site_manager/insites_global_content",
+      "modules/ins_template_help_centre/articles",
+      "modules/ins_template_help_centre/useful_links",
+      "modules/ins_template_help_centre/faqs",
+      "modules/ins_template_help_centre/documentation"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+{%- comment -%}
+    This is where the contents of the landing page is imported/included in the forms of partials.
+{%- endcomment -%}
+
+{%- include 'modules/ins_template_help_centre/content/homepage_banner', 
+    title: "Insites Template Help Centre" -%}
+
+
+{%- include 'modules/ins_template_help_centre/content/search' -%}
+{%- include 'modules/ins_template_help_centre/content/useful_links' -%}
+{%- include_form "modules/ins_template_help_centre/subscribe" -%}
+{%- comment -%}
+{%- include 'modules/ins_template_help_centre/content/subscribe' -%}
+{%- endcomment -%}
+
+<div class="grid-container">
+
+    <div class="spacer xxxx-large"></div>
+    <div class="grid-x grid-padding-x">
+        <div class="small-12 medium-6 large-7 cell">
+            {%- include 'modules/ins_template_help_centre/content/top_faqs' -%}
+        </div>
+        <div class="small-12 medium-6 large-4 large-offset-1 cell">
+            {%- include 'modules/ins_template_help_centre/content/recent_articles' -%}
+        </div>
+    </div>
+    <div class="spacer xxxx-large"></div>
+    
+    
+</div>

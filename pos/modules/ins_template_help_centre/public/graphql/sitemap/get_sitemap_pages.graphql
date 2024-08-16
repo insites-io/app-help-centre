@@ -1,0 +1,46 @@
+query sitemap_pages (
+  $page: Int = 1,
+  $per_page: Int = 200,
+  $filter_searchable: Boolean
+){
+  items: admin_pages(
+    per_page: $per_page,
+    page: $page,
+    filter: {
+      searchable: {
+        value: $filter_searchable
+      },
+      metadata: {
+        attributes: [
+          { 
+            key: "search_engine_visibility",
+            value: true
+          }
+        ]
+      }
+    }
+    sort: {
+      metadata: [
+        ## primary sort order
+        { 
+          name: "sitemap_priority",
+          order: DESC
+        }
+        ## secondary sort order 
+        { 
+          name: "sitemap_order",
+          order: ASC
+        }
+      ]
+    }
+  ) {
+    total_pages
+    total_entries
+    results {
+      slug
+      updated_at
+      metadata
+      searchable
+    }
+  }
+}

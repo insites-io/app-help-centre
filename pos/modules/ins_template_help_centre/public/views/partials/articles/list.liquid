@@ -1,0 +1,88 @@
+---
+metadata: {
+  database_name: "modules/ins_template_help_centre/articles",
+  layout: "list",
+    "og:url": "",
+    "og:type": "",
+    "og:graph": "",
+    "og:image": "",
+    "meta_title": "",
+    "page_title": "Articles",
+    "og:site_name": "",
+    "canonical_url": "",
+    "og:description": "",
+    "meta_description": "",
+    "search_engine_visibility": false
+}
+---
+{%- assign category = context.params.category -%}
+<div class="articles grid-container">
+	<div class="spacer xxxx-large"></div>
+	<h1 class="centered">Articles</h1>
+	<div class="spacer xxxx-large"></div>
+
+	<div class="grid-x grid-padding-x">
+        <div class="small-12 medium-4 large-3 cell">
+            {%- include 'modules/ins_template_help_centre/content/sidebar/category_sidebar',
+                all_link: context.page.slug,
+                title: "Articles",
+                database_name: "modules/ins_template_help_centre/articles"
+            -%}
+        </div>
+        <div class="small-12 medium-8 large-9 cell">
+            {%- if category -%}
+			    <h2 class="hide-for-small-only">{{ category }}</h2>
+            {%- endif -%}
+			<div class="spacer large"></div>
+
+            {%- assign page = context.params.page | default: 1 | plus: 0 -%}
+            {%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
+            {%- capture date_now -%}
+                {{ 'today' | to_time }}
+            {%- endcapture -%}
+
+            {%- graphql articles = 'modules/ins_template_help_centre/articles/get_articles' 
+                page: page,
+                size: per_page,
+                category: context.params.category,
+                date_now: date_now
+            -%}
+
+
+			{%- if articles.items.results.size == 0 -%}
+				{%- if category != blank -%}
+					<p>No results found for {{ category }}.</p>
+				{%- else -%}
+					<p>No results found within Articles.</p>
+				{%- endif -%}
+			{%- else -%}
+                {%- for article in articles.items.results -%}
+                    {%- if category == null or category == ''  -%}
+                        <div class="small-12 medium-12 large-12">
+                            <span class="category">{{ article.category | upcase }}</span>
+                        </div>
+                    {%- endif -%}
+                    <div class="small-12 medium-12 large-12">
+                        <a href="/articles/{{ article.slug }}" class="color-font-head">
+                            <h3>{{ article.post_title }}</h3>
+                        </a>
+                    </div>
+                    <div class="small-12 medium-12 large-12">
+                        <p>Published on {{ article.publish_date | date: "%B %d, %Y"}}</p>
+                    </div>
+
+                    {%- if forloop.last != true -%}
+                        <div class="spacer x-large"></div>
+                        <hr />
+                        <div class="spacer x-large"></div>
+                    {%- endif -%}
+                {%- endfor -%}
+                <div class="spacer xx-large"></div>
+                {%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+                    data: articles.items,
+                    per_page: per_page -%}
+            {%- endif -%}
+        </div>
+    </div>
+	<div class="spacer xxxx-large"></div>
+</div>

@@ -1,0 +1,35 @@
+{%- comment -%}
+    This is a partial to get the top articles in the database.
+    with parameter page:1 (for the first page), and size:5 (to limit the first five).
+    Then looped for display.
+{%- endcomment -%}
+{%- graphql recent_articles = 'modules/ins_template_help_centre/articles/get_articles' 
+    page: 1,
+    size: 5
+-%}
+{%- if recent_articles.items.total_entries != 0-%}
+    {%- assign recent_articles = recent_articles.items.results -%}
+    <div class="articles">
+        <h2>Recent Articles</h2>
+        <div class="spacer small"></div>
+        <a href="/articles" class="view-all">View All</a>
+        <div class="spacer x-large"></div>
+
+        {%- for article in recent_articles -%}
+            <div class="small-12 medium-12 large-12">
+                <a href="/articles/{{ article.slug }}" class="color-font-head">
+                    <h3>{{ article.post_title }}</h3>
+                </a>
+            </div>
+            <div class="small-12 medium-12 large-12">
+                <p>Published on {{ article.publish_date | date: "%B %d, %Y"}}</p>
+            </div>
+
+            {%- if forloop.last != true -%}
+            <div class="spacer x-large"></div>
+            <hr />
+            <div class="spacer x-large"></div>
+            {%- endif -%}
+        {%- endfor -%}
+    </div>
+{%- endif -%}    

@@ -1,0 +1,67 @@
+{%- comment -%}
+By adding the global content to the top of the layout
+It can be accessed in the includes without calling the GraphQL again
+It IS NOT accessible in {{content_for_layout}} which includes the specific page
+{%- endcomment -%}
+{%- comment -%}{%- include "system/global_content" -%} {%- endcomment -%}
+{%- assign global = context.exports.global -%}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%- comment -%}
+        INS Template Help Centre 'head' content block
+        - used to manage dynamic pages to control page title, meta title & description
+        {%- endcomment -%}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height,
+            initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+        <meta content="authenticity_token" name="csrf-param">
+        <meta content="{{ context.authenticity_token }}" name="csrf-token">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        {%- comment -%} Global Content Partial{%- endcomment -%}
+        {%- include 'modules/ins_template_help_centre/system/global_content' -%}
+
+        {%- comment -%} Favicon Partial {%- endcomment -%}
+        {%- include 'modules/ins_template_help_centre/layout/favicons' -%}
+
+        {%- comment -%} INS-DBM SEO Metadata Partial {%- endcomment -%}
+        {%- include 'modules/insites_database/insites_admin/database_layouts/page_metadata' -%}
+
+        {%- comment -%}
+        Assets like 'Google Map API', should only be referenced as needed.
+        - Managed on the 'page / layout' level
+        {%- endcomment -%}
+        {%- include 'modules/ins_template_help_centre/layout/technical_head' -%}
+    </head>
+    <body>
+        {%- include 'modules/ins_template_help_centre/layout/header' -%}
+        {%- include 'modules/ins_template_help_centre/layout/sub_header' -%}
+
+        <div class="documentation grid-container">
+            <div class="grid-x grid-padding-x">
+                <div class="small-12 cell show-for-small-only">
+                    <div class="spacer xxxx-large"></div>
+                    <h1>Documentation</h1>
+                    <div class="spacer xxxx-large"></div>
+                </div>
+                <div class="small-12 medium-4 large-3 cell documentation-sidebar">
+                    <div class="spacer large show-for-small-only"></div>
+                    <div class="spacer xxxx-large hide-for-small-only"></div>
+                    {%- include 'modules/ins_template_help_centre/lazy_load/sidebar' -%}
+                    <div class="spacer xxxx-large hide-for-small-only"></div>
+                </div>
+                <div class="small-12 medium-8 large-9 cell">
+                    <div class="spacer large show-for-small-only"></div>
+                    <div class="spacer xxxx-large hide-for-small-only"></div>
+                    {{ content_for_layout }}
+                    <div class="spacer xxxx-large"></div>
+                </div>
+            </div>
+        </div>
+    
+        {%- include 'modules/ins_template_help_centre/layout/footer' -%}
+        {%- include 'modules/ins_template_help_centre/layout/technical_footer' -%}
+    </body>
+</html>

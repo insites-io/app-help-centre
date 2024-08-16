@@ -1,0 +1,66 @@
+{%- assign page = context.params.page | default: 1 | plus: 0 -%}
+{%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
+{%- assign filters = context.exports.filters -%}
+{%- assign category = filters.category -%}
+{%- assign tag = context.exports.tags | detect: name: filters.tag -%}
+{%- assign tags = tag.id | split: "," -%}
+
+{%- if timeline_category != blank -%}
+    {%- assign category = timeline_category -%}
+{%- endif -%}
+
+{%- graphql timeline = 'modules/ins_template_help_centre/timeline/get_timeline' 
+    page: page,
+    size: per_page,
+    date_today: date_today,
+    range: filters.range,
+    category: category,
+    tags: tags
+-%}
+
+<div class="grid-x grid-padding-x">
+    <div class="small-12 medium-10 large-8 large-offset-2 medium-offset-1 cell">
+        <div class="spacer large"></div>
+
+        {%- if timeline.items.results.size == 0 -%}
+            <p>No results found within Timeline.</p>
+        {%- else -%}
+            <ins-timeline static-timeline total-count="4">
+                {%- for timeline_item in timeline.items.results -%}
+                    {%- if timeline_item.enable_details_page == "true" -%}
+                        <a href="/timeline/{{ timeline_item.slug }}" class="timeline-items color-font-head">
+                    {%- endif -%}
+                        <ins-timeline-item>
+                            <div slot="content">
+                                <div class="spacer x-small"></div>
+                                <div class="grid-x grid-padding-x">
+                                    <div class="small-12 medium-8 large-9 cell">
+                                        {%- include "modules/ins_template_help_centre/timeline/tags", 
+                                            tag_ids: timeline_item.tags -%}
+                                    </div>
+                                    <div class="small-12 medium-6 large-3 cell medium-text-right text-left">
+                                        <div class="spacer x-small show-for-small-only"></div>
+                                        <p>{{ timeline_item.release_date | date: "%d %B %Y" }}</p>
+                                    </div>
+                                </div>
+                                <div class="grid-x grid-padding-x timeline-container">
+                                    <h3>{{- timeline_item.title -}}</h3>
+                                </div>
+                                <div class="spacer xx-small"></div>
+                                <div class="grid-x grid-padding-x timeline-container">
+                                    {{- timeline_item.timeline_content | markdown -}}
+                                </div>
+                            </div>
+                        </ins-timeline-item>
+                    {%- if timeline_item.enable_details_page == "true" -%}
+                        </a>
+                    {%- endif -%}
+                {%- endfor -%}
+            </ins-timeline>
+            <div class="spacer xx-large"></div>
+            {%- include "modules/ins_template_help_centre/timeline/pagination",
+                data: timeline.items,
+                per_page: per_page -%}
+        {%- endif -%}
+    </div>
+</div>

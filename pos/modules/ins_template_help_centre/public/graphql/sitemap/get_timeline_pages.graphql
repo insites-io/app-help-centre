@@ -1,0 +1,44 @@
+query get_timeline_pages (
+  $page: Int = 1, 
+  $per_page: Int = 100,
+  $status: String = "Published",
+  $detail_page: Boolean = true
+) {
+    items: models(
+      page: $page,
+      per_page: $per_page,
+      filter: {
+        model_schema_name: { 
+          value: "modules/ins_template_help_centre/timeline" 
+        },
+        deleted_at: { 
+          exists: false
+        },
+        properties: [
+          { 
+            name: "status",
+            value: $status
+          },
+          { 
+            name: "enable_details_page",
+            value_boolean: $detail_page
+          }
+        ]
+      },
+      sort: {
+        properties: { 
+          name: "release_date",
+          order: DESC
+        } 
+      }
+  ) {
+      total_entries
+      total_pages
+      per_page
+      current_page
+      results {
+        updated_at
+        slug: property(name: "slug")
+      }
+    }
+}

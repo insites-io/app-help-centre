@@ -1,0 +1,17 @@
+query get_timeline_schema {
+  items: admin_model_schemas(
+    per_page: 1,
+    filter: {
+      name: {
+        value: "modules/ins_template_help_centre/timeline"
+      }
+    }
+  ){
+    results {
+      properties {
+        name
+        metadata
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+---
+slug: api/s3-contact-us
+format: json
+searchable: false
+max_deep_level: 2
+metadata: {
+  page_title: "S3 Contact Us Form | Insites",
+  meta_title: "S3 Contact Us Form | Insites",
+  description: "S3 Contact Us Form | Insites Demo Description",
+  canonical_url: "",
+  status: "published",
+  search_engine_visibility: "true",
+  sitemap_priority: 0.0, ## primary order (DESC)
+  sitemap_order: 9999, ## secondary order (ASC)
+  sitemap_changefreq: "never"
+}
+---
+
+{%- graphql results = 'modules/ins_template_help_centre/forms/get_upload_s3_credentials' -%}
+{{ results }}

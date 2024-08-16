@@ -1,0 +1,51 @@
+<div class="faqs grid-container">
+	<div class="grid-x grid-padding-x">
+		<div class="small-12 medium-8 large-9 large-offset-2 cell">
+            <div class="spacer xx-large"></div>
+            <h2>FAQs</h2>
+            <div class="spacer xx-large"></div>
+
+			{%- assign page = context.params.fp | default: 1 | plus: 0 -%}
+            {%- assign per_page = context.params.per_page | default: 5 | plus: 0 -%}
+
+			{%- if faq_search_results.results.size == 0 -%}
+				{%- if category != blank -%}
+					<p>No results found for {{ category }}.</p>
+				{%- else -%}
+					<p>No results found within FAQs.</p>
+				{%- endif -%}
+			{%- else -%}
+				<ins-accordion>
+					{%- for faq in faq_search_results.results -%}
+						<ins-accordion-item heading="{{ faq.properties.question }}">
+							{{ faq.properties.answer }}
+							{%- if faq.file_download.url -%}
+								<div class="spacer small"></div>
+								<hr />
+								<div class="spacer small"></div>
+								<div class="grid-x grid-padding-x container">
+									<div class="small-7 medium-6 large-9 cell">
+										{{ faq.pdf_description }}
+									</div>
+									<div class="small-5 medium-6 large-3 cell text-right">
+										<a href="{{ faq.file_download.url}}" target="_blank">
+											<ins-button icon="icon-file-download" label="DOWNLOAD" solid size="small">
+											</ins-button>
+										</a>
+									</div>
+								</div>
+							{%- endif -%}
+						</ins-accordion-item>
+					{%- endfor -%}
+				</ins-accordion>
+    			<div class="spacer xx-large"></div>
+				
+				{%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+					data: faq_search_results,
+					per_page: per_page,
+					type: "search_faqs" -%}
+			{%- endif -%}
+		</div>
+	</div>
+	<div class="spacer xxxx-large"></div>
+</div>

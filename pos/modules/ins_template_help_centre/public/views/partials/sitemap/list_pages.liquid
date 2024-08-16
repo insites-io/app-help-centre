@@ -1,0 +1,64 @@
+{%- graphql page_list = 'modules/ins_template_help_centre/sitemap/get_sitemap_pages' -%}
+{%- comment -%}
+Change the varialbes below as needed to 'hide' unwanted pages on sitemap:
+ - 'system_exempted_slug' are pages that you want to hide on sitemap
+ - 'custom_exempted_slugs' are the pages specific to a project, 
+{%- endcomment -%}
+
+{%- assign system_exempted_slug = "404,401,500,403,thank-you,thankyou" -%}
+{%- assign custom_exempted_slugs = "api,test,tmp_payment,insites/api,purchase/error,logout,my-account,unauthorized,404_custom,unauthorized_custom," | append: system_exempted_slug -%}
+{%- assign exempted_slugs = custom_exempted_slugs | split: "," -%}
+
+{%- comment -%}Loop pagination: List of pages{%- endcomment -%}
+    {%- for page in (1..page_list.items.total_pages) -%}
+
+        {%- for page in page_list.items.results -%}
+
+            {%- comment %} 
+                This will ensure that the link/page is searchable 
+                and has a metatag of search_engine_visibility set to TRUE 
+            {%- endcomment -%}
+            {%- if page.searchable == true or page.searchable == "true" 
+                and page.metadata.search_engine_visibility == true 
+                or page.metadata.search_engine_visibility == "true" -%}
+                {%- comment %} 
+                    Check if current page slug is not found on 
+                    the list of ignored slugs 
+                {%- endcomment -%}
+                {%- assign is_ignore = exempted_slugs | is_included_in_array: page.slug -%}
+
+                {%- if is_ignore == false -%}
+
+                    {%- if page.slug == '/' -%}
+                        {%- assign slug = page.slug -%}
+                    {%- else -%}
+                        {%- assign slug = '/' | append: page.slug -%}
+                    {%- endif -%}
+                    {%- comment -%}Main page list{%- endcomment -%}
+                    <url>
+                        <loc>https://{{ context.location.host }}{{ slug }}</loc>
+                        {%- comment -%}Last page modified: 'YYYY-MM-DD' {%- endcomment -%}
+                        <lastmod>{{ page.updated_at | date: '%Y-%m-%d' }}</lastmod>
+                    </url>
+                    {%- comment -%}Child / Details page list{%- endcomment -%}
+
+                    {%- comment -%}Blog details page  ie. ../blogs/my-blog-post {%- endcomment -%}
+                    {%- if slug == '/articles' -%}
+                        {%- include 'modules/ins_template_help_centre/sitemap/sub_pages/article_pages' -%}
+                    {%- endif -%}
+
+                    {%- if slug == '/documentation' -%}
+                        {%- include 'modules/ins_template_help_centre/sitemap/sub_pages/documentation_pages' -%}
+                    {%- endif -%}
+
+                    {%- if slug == '/timeline' -%}
+                        {%- include 'modules/ins_template_help_centre/sitemap/sub_pages/timeline_pages' -%}
+                    {%- endif -%}
+
+                {%- endif -%}
+                
+            {%- endif -%}
+
+        {%- endfor -%}
+
+    {%- endfor -%}

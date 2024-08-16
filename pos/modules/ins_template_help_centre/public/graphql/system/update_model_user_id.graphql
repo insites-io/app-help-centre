@@ -1,0 +1,14 @@
+mutation update_model_user_id($id: ID!, $user_id: ID!) {
+  items: model_update (
+    id: $id,
+    model: {
+      user_id: $user_id
+    }
+  ){
+    id
+    user_id
+    model_schema_name
+    properties
+  }
+}
+

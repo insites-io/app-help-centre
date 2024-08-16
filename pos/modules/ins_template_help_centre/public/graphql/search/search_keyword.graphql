@@ -1,0 +1,49 @@
+query search_via_keyword (
+  $id: ID,
+  $page: Int = 1,
+  $size: Int = 1,
+  $keyword: String,
+  $schema: String,
+) {
+  items: models(
+    page: $page,
+    per_page: $size,
+    filter: {
+      id: { 
+        value: $id
+      },
+      deleted_at: { 
+        exists: false
+      },
+      model_schema_name: { 
+        value: $schema
+      },
+      or: [
+        {
+          properties: [
+            {
+              name: "question",
+              contains: $keyword
+            }
+          ]
+        },
+        {
+          properties: [
+            { 
+              name: "answer",
+              contains: $keyword
+            }
+          ]
+        }
+      ]
+    }
+  ) {
+    total_entries
+    total_pages
+    current_page
+    results {
+      id 
+      properties
+    }
+  }
+}

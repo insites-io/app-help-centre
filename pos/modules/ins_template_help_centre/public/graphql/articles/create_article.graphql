@@ -1,0 +1,54 @@
+mutation create_article(
+  $publish_date: String,
+  $short_text: String,
+  $post_title: String,
+  $content: String,
+  $slug: String,
+  $sort_order: Int
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/articles",
+      properties: [
+        { 
+          name: "publish_date",
+          value: $publish_date 
+        },
+        { 
+          name: "author",
+          value: "Insites" 
+        },
+        { 
+          name: "category",
+          value: "Technology" 
+        },
+        { 
+          name: "short_text",
+          value: $short_text
+        },
+        { 
+          name: "post_title",
+          value: $post_title
+        },
+        { 
+          name: "content",
+          value: $content
+        },
+        { 
+          name: "slug",
+          value: $slug
+        },
+        { 
+          name: "sort_order",
+          value_int: $sort_order 
+        },
+        { 
+          name: "status",
+          value: "Published"
+        }
+      ]
+    }
+  ) {
+    id
+  }
+}

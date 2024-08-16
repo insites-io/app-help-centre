@@ -1,0 +1,37 @@
+---
+slug: timeline
+layout: modules/ins_template_help_centre/dynamic_content_layout
+searchable: true
+max_deep_level: 3
+metadata: {
+  page_title: "Timeline",
+  meta_title: "Timeline",
+  description: "Timeline",
+  canonical_url: "",
+  database_name: "modules/ins_template_help_centre/timeline",
+  status: "published",
+  searchable: "true",
+  search_engine_visibility: "true",
+  sitemap_priority: 1.0, ## primary order (DESC)
+  sitemap_order: 1003, ## secondary order (ASC)
+  sitemap_changefreq: "always",
+  details_enabled: true,
+  list_enabled: true
+}
+redirect_to: >
+  {%- include 'modules/insites_database/insites_admin/database_layouts/insites_database_layouts_redirect_to' -%}
+enable_profiler: true
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_site_manager/insites_global_content",
+      "modules/ins_template_help_centre/timeline",
+      "modules/ins_template_help_centre/documentation"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+{%- include 'modules/insites_database/insites_admin/database_layouts/insites_database_layouts_page_content' -%}
+

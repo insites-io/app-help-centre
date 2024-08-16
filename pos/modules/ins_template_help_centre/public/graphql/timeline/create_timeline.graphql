@@ -1,0 +1,67 @@
+mutation create_timeline(
+  $slug: String,
+  $tag: String,
+  $title: String,
+  $release_date: String,
+  $timeline_content: String,
+  $detailed_content:String,
+  $author: String,
+  $enable_details_page: Boolean,
+  $status: String,
+  $parent: String,
+  $category: String
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/timeline",
+      properties: [
+        { 
+          name: "slug",
+          value: $slug
+        },
+        { 
+          name: "tag",
+          value: $tag
+        },
+        { 
+          name: "title",
+          value: $title
+        },
+        { 
+          name: "release_date",
+          value: $release_date 
+        },
+        { 
+          name: "timeline_content",
+          value: $timeline_content 
+        },
+        { 
+          name: "detailed_content",
+          value: $detailed_content 
+        },
+        { 
+          name: "author",
+          value: $author 
+        },
+        { 
+          name: "enable_details_page",
+          value_boolean: $enable_details_page 
+        },
+        { 
+          name: "status",
+          value: $status 
+        },
+        { 
+          name: "parent",
+          value: $parent 
+        },
+        { 
+          name: "category",
+          value: $category 
+        }
+      ]
+    }
+  ) {
+      id
+    }
+}

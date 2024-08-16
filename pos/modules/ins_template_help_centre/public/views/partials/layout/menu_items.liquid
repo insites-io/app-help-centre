@@ -1,0 +1,32 @@
+<ul>
+    <li {% if context.params.slug == 'faqs' %}class="active"{%- endif -%}>
+        <a href="/faqs"
+            class="color-font-head">
+            FAQs
+        </a>
+    </li>
+    <li {% if context.params.slug == 'articles' %}class="active"{%- endif -%}>
+        <a href="/articles"
+            class="color-font-head">
+            Articles
+        </a>
+    </li>
+    <li {% if context.params.slug == 'timeline' %}class="active"{%- endif -%}>
+        <a href="/timeline"
+            class="color-font-head">
+            Timeline
+        </a>
+    </li>
+    <li {% if context.params.slug == 'documentation' %}class="active"{%- endif -%}>
+        <a href="/documentation"
+            class="color-font-head">
+            Documentation
+        </a>
+    </li>
+    <li>
+        <a href="http://example.com" target="_blank" class="header-button">
+            <ins-button label="GO TO WEBSITE" solid color="blue" size="normal">
+            </ins-button>
+        </a>
+    </li>
+</ul>

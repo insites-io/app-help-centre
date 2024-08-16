@@ -1,0 +1,48 @@
+<div class="articles grid-container">
+	<div class="grid-x grid-padding-x">
+        <div class="small-12 medium-8 large-9 large-offset-2 cell">
+            <div class="spacer xx-large"></div>
+            <h2>Articles</h2>
+            <div class="spacer xx-large"></div>
+
+            {%- assign page = context.params.ap | default: 1 | plus: 0 -%}
+            {%- assign per_page = context.params.per_page | default: 5 | plus: 0 -%}
+
+			{%- if articles_search_results.results.size == 0 -%}
+				{%- if category != blank -%}
+					<p>No results found for {{ category }}.</p>
+				{%- else -%}
+					<p>No results found within Articles.</p>
+				{%- endif -%}
+			{%- else -%}
+
+                {%- for article in articles_search_results.results -%}
+                    <div class="small-12 medium-12 large-12">
+                        <span class="category">{{ article.properties.category | upcase }}</span>
+                    </div>
+                    <div class="spacer xx-small"></div>
+                    <div class="small-12 medium-12 large-12">
+                        <a href="/articles/{{ article.properties.slug }}" class="color-font-head">
+                            <h3>{{ article.properties.post_title }}</h3>
+                        </a>
+                    </div>
+                    <div class="small-12 medium-12 large-12">
+                        <p>Published on {{ article.properties.publish_date | date: "%B %d, %Y"}}</p>
+                    </div>
+
+                    {%- if forloop.last != true -%}
+                        <div class="spacer x-large"></div>
+                        <hr />
+                        <div class="spacer x-large"></div>
+                    {%- endif -%}
+                {%- endfor -%}
+                <div class="spacer xx-large"></div>
+                {%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+                    data: articles_search_results,
+                    per_page: per_page,
+                    type: "search_articles" -%}
+            {%- endif -%}
+        </div>
+    </div>
+	<div class="spacer xxxx-large"></div>
+</div>

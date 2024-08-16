@@ -1,0 +1,18 @@
+mutation create_useful_link(
+    $label: String,
+    $sort_order: Int,
+) {
+  items: model_create(
+    model: {
+      model_schema_name: "modules/ins_template_help_centre/useful_links",
+      properties: [
+        { name: "url", value: "http://example.com" }
+        { name: "icon", value: "icon-globals" }
+        { name: "label", value: $label }
+        { name: "sort_order", value_int: $sort_order }
+      ]
+    }
+  ) {
+      id
+    }
+}

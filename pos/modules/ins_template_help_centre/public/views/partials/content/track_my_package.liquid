@@ -1,0 +1,37 @@
+{%- comment -%}
+    This is a partial for the tracking of package, with javascript function to trigger
+    the event with the button click or on key press enter(keyCode == 13).
+{%- endcomment -%}
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+        <div class="large-12 medium-12 small-12">
+            <h2 class="centered">We are here to help</h2>
+            <div class="spacer small"></div>
+        </div>
+
+        <div class="large-12 medium-12 small-12">
+            <p class="centered">Find out where your package is by entering your tracking number below.</p>
+            <div class="spacer large"></div>
+        </div>
+
+        <div class="large-8 small-12 medium-12 large-offset-1 cell">
+            <ins-input
+                id="tracking-number-input"
+                placeholder="Enter your tracking number"
+                field="text"
+                error-message="Please provide a valid tracking number.">
+            </ins-input>
+        </div>
+        
+        <div class="large-3 small-12 medium-12 cell">
+            <ins-button
+                id="track-button"
+                label="Track My Package"
+                solid
+                color="blue"
+                size="normal">
+            </ins-button>
+        </div>
+    </div>
+</div>
+

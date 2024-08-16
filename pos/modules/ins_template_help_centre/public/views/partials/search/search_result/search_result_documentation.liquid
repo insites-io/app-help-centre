@@ -1,0 +1,48 @@
+<div class="articles grid-container">
+	<div class="grid-x grid-padding-x">
+        <div class="small-12 medium-8 large-9 large-offset-2 cell">
+            <div class="spacer xx-large"></div>
+            <h2>Documentation</h2>
+            <div class="spacer xx-large"></div>
+
+            {%- assign page = context.params.dp | default: 1 | plus: 0 -%}
+            {%- assign per_page = context.params.per_page | default: 5 | plus: 0 -%}
+            
+			{%- if documentation_search_result.results.size == 0 -%}
+                <p>No results found within Documentation.</p>
+			{%- else -%}
+                {%- for documentation in documentation_search_result.results -%}
+                    <div class="small-12 medium-12 large-12">
+                        <p><b>{{- documentation.properties.section | upcase -}}</b></p>
+                    </div>
+                    <div class="spacer x-small"></div>
+                    <div class="small-12 medium-12 large-12">
+                        <a href="/documentation/{{ documentation.properties.slug }}" class="color-font-head">
+                            <h3>{{ documentation.properties.title }}</h3>
+                        </a>
+                    </div>
+                    <div class="spacer large"></div>
+                    <div class="small-12 medium-12 large-12">
+                        <p>{{- documentation.properties.content | truncate: 230 -}}</p>
+                    </div>
+                    <div class="spacer x-small"></div>
+                        <div class="small-12 medium-12 large-12 read-more">
+                            <a href="/documentation/{{ documentation.properties.slug }}">READ MORE</a>
+                        </div>
+
+                    {%- if forloop.last != true -%}
+                        <div class="spacer x-large"></div>
+                        <hr />
+                        <div class="spacer x-large"></div>
+                    {%- endif -%}
+                {%- endfor -%}
+                <div class="spacer xx-large"></div>
+                {%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+                    data: documentation_search_result,
+                    per_page: per_page,
+                    type: "search_documentation" -%}
+            {%- endif -%}
+        </div>
+    </div>
+	<div class="spacer xxxx-large"></div>
+</div>
