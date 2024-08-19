@@ -31,9 +31,8 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         {%- comment -%} Favicon Partial {%- endcomment -%}
         {%- include 'modules/ins_template_help_centre/layout/favicons' -%}
 
-        {%- comment -%} INS-DBM SEO Metadata Partial {%- endcomment -%}
-        {% comment %} TEST {%- include 'modules/insites_database/insites_admin/database_layouts/page_metadata' -%} {% endcomment %}
-        
+        {%- comment -%} SEO Metadata {%- endcomment -%}
+        {%- include 'modules/insites_cms/seo' -%}
 
         {%- comment -%}
         Assets like 'Google Map API', should only be referenced as needed.
