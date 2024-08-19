@@ -12,6 +12,7 @@ properties:
     group_id: "0fa0e29f-c88f-4056-8fa7-29856949d08d"
     ui_element: "input"
     is_required: true
+    column_weigthing: 2
     is_shown_in_table: false
 - name: canonical_url
   type: string
@@ -21,6 +22,7 @@ properties:
     group_id: "0e715a53-67d8-488a-9508-b8de173f5a02"
     ui_element: "input"
     is_required: false
+    column_weigthing: 13
     help_text_tooltip: "You can learn more about canonical URL's from Google here - https://developers.google.com/search/docs/advanced/crawling/consolidate-duplicate-urls"
     is_shown_in_table: false
 - name: content
@@ -39,6 +41,7 @@ properties:
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "input"
     is_required: false
+    column_weigthing: 7
     help_text_tooltip: "Utilise this field when you would like to set a different label for your contents menu item. If not set, it will use the \"Title\" field."
     is_shown_in_table: false
 - name: meta_description
@@ -58,6 +61,7 @@ properties:
     group_id: "0e715a53-67d8-488a-9508-b8de173f5a02"
     ui_element: "input"
     is_required: false
+    column_weigthing: 12
     help_text_tooltip: "A good title has between 40-60 characters."
     is_shown_in_table: false
 - name: ogdescription
@@ -81,6 +85,43 @@ properties:
     help_text_tooltip: "The URL for an image you want to represent your content when shared on social media. Images must be either PNG, JPEG and GIF formats and at least 50px by 50px."
   options:
     acl: public
+    versions:
+      - name: Desktop
+        output:
+          quality: 95
+        resize:
+          fit: cover
+          width: 1230
+          height: 425
+          position: center
+          without_enlargement: false
+      - name: Mobile
+        output:
+          quality: 80
+        resize:
+          fit: cover
+          width: 640
+          height: 480
+          position: center
+          without_enlargement: false
+      - name: List-View
+        output:
+          quality: 60
+        resize:
+          fit: cover
+          width: 620
+          height: 365
+          position: center
+          without_enlargement: false
+      - name: OG-Image-1200x630
+        output:
+          quality: 80
+        resize:
+          fit: cover
+          width: 1200
+          height: 630
+          position: center
+          without_enlargement: false
     cache_control: ""
     content_disposition: inline
 - name: og_site_name
@@ -91,6 +132,7 @@ properties:
     group_id: "37b855dc-f263-4743-bc07-6c0f71ff8cdc"
     ui_element: "input"
     is_required: false
+    column_weigthing: 17
     help_text_tooltip: "The name of your site when shared on social media."
     is_shown_in_table: false
 - name: og_title
@@ -101,6 +143,7 @@ properties:
     group_id: "37b855dc-f263-4743-bc07-6c0f71ff8cdc"
     ui_element: "input"
     is_required: false
+    column_weigthing: 14
     help_text_tooltip: "The title of your content when shared on social media."
     is_shown_in_table: false
 - name: og_type
@@ -111,6 +154,7 @@ properties:
     group_id: "37b855dc-f263-4743-bc07-6c0f71ff8cdc"
     ui_element: "input"
     is_required: false
+    column_weigthing: 15
     help_text_tooltip: "The type of content. Think of these as categories, hotel, blog, article etc."
     is_shown_in_table: false
 - name: og_url
@@ -121,6 +165,7 @@ properties:
     group_id: "37b855dc-f263-4743-bc07-6c0f71ff8cdc"
     ui_element: "input"
     is_required: false
+    column_weigthing: 16
     help_text_tooltip: "This will be the URL that will be associated with your content when shared on social media."
     is_shown_in_table: false
 - name: order
@@ -131,6 +176,7 @@ properties:
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "number"
     is_required: false
+    column_weigthing: 6
     help_text_tooltip: "Use this field when you would like to sort the order of the content."
     is_shown_in_table: false
 - name: parent_category
@@ -143,6 +189,7 @@ properties:
     ui_element: "select_data_source"
     is_required: false
     display_field: "title"
+    column_weigthing: 8
     help_text_tooltip: "Setting the Parent Category will define where your content is displayed within the heircharcy of content."
     is_shown_in_table: false
 - name: publish_date
@@ -153,6 +200,7 @@ properties:
     group_id: "0fa0e29f-c88f-4056-8fa7-29856949d08d"
     ui_element: "date"
     is_required: true
+    column_weigthing: 3
     help_text_tooltip: "Enter the date that you would like to have your content published. Setting a date in the future will release the content on that date."
     is_shown_in_table: false
 - name: section
@@ -164,6 +212,7 @@ properties:
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "select"
     is_required: true
+    column_weigthing: 9
     is_shown_in_table: false
 - name: short_description
   type: string
@@ -173,6 +222,7 @@ properties:
     group_id: "0fa0e29f-c88f-4056-8fa7-29856949d08d"
     ui_element: "input"
     is_required: true
+    column_weigthing: 4
     is_shown_in_table: false
 - name: shown_in_footer_menu
   type: boolean
@@ -181,6 +231,7 @@ properties:
     weight: 12
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "toggle"
+    column_weigthing: 11
     is_shown_in_table: false
 - name: shown_in_sidebar_menu
   type: boolean
@@ -189,6 +240,7 @@ properties:
     weight: 11
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "toggle"
+    column_weigthing: 10
     help_text_tooltip: "Toggle for Documentation's Visibility in sidebar menu."
     is_shown_in_table: false
 - name: slug
@@ -199,6 +251,7 @@ properties:
     group_id: "0fa0e29f-c88f-4056-8fa7-29856949d08d"
     ui_element: "input"
     is_required: true
+    column_weigthing: 0
     help_text_tooltip: "You can define the slug of your content. The slug is the part that comes at the very end of a URL. It is human-readable, a unique identifier and used to identify this content. For example, your URL may look like the following https://website.com/category/<slug>"
     is_shown_in_table: false
 - name: status
@@ -210,6 +263,7 @@ properties:
     group_id: "15296e58-7425-448d-b912-48952adca3a9"
     ui_element: "select"
     is_required: false
+    column_weigthing: 5
     help_text_tooltip: "You can utilise the 'draft' status when you would like to work on some content before releasing it. To to preview your draft content on your websute, add \"?preview=true\" to the contents URL."
     is_shown_in_table: false
 - name: title
@@ -222,4 +276,5 @@ properties:
     is_required: true
     is_sortable: true
     is_searchable: true
+    column_weigthing: 1
     is_shown_in_table: true

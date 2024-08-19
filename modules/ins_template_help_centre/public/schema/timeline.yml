@@ -165,16 +165,15 @@ properties:
     help_text_tooltip: "You can utilise the 'draft' status when you would like to work on some content before releasing it. To to preview your draft content on your websute, add \"?preview=true\" to the contents URL."
     is_shown_in_table: false
 - name: tags
-  type: string
-  belongs_to: modules/ins_databases/tags
+  type: array
+  belongs_to: modules/ins_template_help_centre/tags
   metadata:
     label: "Tags"
     weight: 1
     group_id: "ee5eec9d-4f92-4d78-bbf7-1215bc9c54f5"
-    ui_element: "select_data_source"
+    ui_element: "select_data_source_multiple"
     is_required: true
     display_field: "name"
-    help_text_tooltip: "Tag your content to help users understand the relevance and aid in content organisation."
     is_shown_in_table: false
 - name: timeline_content
   type: string
