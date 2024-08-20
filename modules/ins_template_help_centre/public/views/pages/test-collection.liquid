@@ -1,0 +1,29 @@
+---
+slug: test-collection
+layout: modules/ins_template_help_centre/dynamic_content_layout
+searchable: true
+max_deep_level: 3
+metadata: {
+    "page_name": "Test Collection via Codebase",
+    "database_id": "1750521",
+    "source_name": "modules/ins_template_help_centre/articles",
+    "is_list_layout_enabled": true,
+    "is_details_layout_enabled": true
+}
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_site_manager/insites_global_content",
+      "modules/ins_template_help_centre/documentation"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+
+{%- if context.params.slug2 != blank -%}
+    {%- include "modules/ins_template_help_centre/articles/details" -%}  
+{%- else -%}
+    {%- include "modules/ins_template_help_centre/articles/list" -%}  
+{%- endif -%}
