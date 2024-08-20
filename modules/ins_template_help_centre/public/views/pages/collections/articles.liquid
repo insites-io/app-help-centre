@@ -1,0 +1,35 @@
+---
+slug: articles
+layout: modules/ins_template_help_centre/dynamic_content_layout
+searchable: true
+max_deep_level: 2,
+metadata: {
+  "page_name": "Articles",
+  "database_id": "1750521",
+  "source_name": "modules/ins_template_help_centre/articles",
+  "is_list_layout_enabled": true,
+  "is_details_layout_enabled": true,  
+  "page_title": "Articles",
+  "search_engine_visibility": "true"
+}
+dynamic_cache:
+  layout: true
+  key: |-
+    {%- parse_json models -%}
+    [
+      "modules/insites_cms/global",
+      "modules/ins_template_help_centre/articles",
+      "modules/ins_template_help_centre/documentation"
+    ]
+    {%- endparse_json -%}
+    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+---
+
+{%- if context.params.slug2 != blank -%}
+    {%- graphql item = 'modules/ins_template_help_centre/articles/get_article', 
+	              slug: context.params.slug2 | dig: 'items','results' | first | dig: 'properties' -%}
+
+    {%- include "modules/ins_template_help_centre/articles/details", item: item -%}  
+{%- else -%}
+    {%- include "modules/ins_template_help_centre/articles/list" -%}  
+{%- endif -%}

@@ -1,24 +1,24 @@
 ---
 metadata: {
   "database_name": "modules/ins_template_help_centre/articles",
-  "slug2": "{{ context.exports.data.item.slug }}",
+  "page_slug": "articles",
+  "slug2": "{{ item.slug }}",
   "layout": "details",
-  "page_title": "{{ context.exports.data.item.post_title }}",
-  "meta_title": "{{ context.exports.data.item.meta_title }}",
-  "meta_description": "{{ context.exports.data.item.meta_description }}",
-  "og:title": "{{ context.exports.data.item.og_type }}",
-  "og:description": "{{ context.exports.data.item.og_description }}",
-  "og:type": "{{ context.exports.data.item.og_type }}",
-  "og:url": "{{ context.exports.data.item.og_url }}",
-  "og:site_name": "{{ context.exports.data.item.og_site_name }}",
-  "og:image": '{{ context.exports.data.item.og_image.version["OG-Image-1200x630"] }}',
-  "canonical_url": "{{ context.exports.data.item.canonical_url }}",
+  "page_title": "{{ item.page_title }}",
+  "meta_title": "{{ item.meta_title }}",
+  "meta_description": "{{ item.meta_description }}",
+  "og:title": "{{ item.og_type }}",
+  "og:description": "{{ item.og_description }}",
+  "og:type": "{{ item.og_type }}",
+  "og:url": "{{ item.og_url }}",
+  "og:site_name": "{{ item.og_site_name }}",
+  "og:image": '{{ item.og_image.version["OG-Image-1200x630"] }}',
+  "canonical_url": "{{ item.canonical_url }}",
   "search_engine_visibility": true
 }
 ---
 
-{%- assign item = context.exports.data.item -%}
-{%- assign last_updated = context.exports.data.updated_at -%}
+{%- assign last_updated = item.updated_at -%}
 {%- comment -%} Checking if detail can be display  {%- endcomment -%}
 {%- assign date_now = 'today' | to_time -%}
 {%- assign item_status = item.status | downcase -%}

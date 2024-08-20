@@ -1,47 +1,29 @@
 query get_timeline(
   $page: Int = 1, 
   $size: Int = 10, 
-  $category: String, 
-  $tags: [String!],
-  $range: RangeFilter
+  $slug: String
 ) {
-  items: models(
+  items: records(
     page: $page,
     per_page: $size,
     filter: {
       deleted_at: {
         exists: false
       },
-      model_schema_name: {
+      table: {
         value: "modules/ins_template_help_centre/timeline"
       },
       properties: [
-        {
-          name: "category",
-          value: $category
-        },
-        {
-          name: "tags",
-          array_contains: $tags
-        },
         {
           name: "status",
           value: "Published"
         },
         {
-          name: "release_date",
-          range: $range
+          name: "slug",
+          value: $slug
         }
       ]
     }
-    sort: [
-      { 
-        properties: {
-          name: "release_date",
-          order: DESC
-        }
-      }
-    ]
   ) {
     total_entries
     total_pages
@@ -50,16 +32,8 @@ query get_timeline(
     has_previous_page
     per_page
     results {
-      slug: property(name: "slug")
-      tag: property(name: "tag")
-      tags: property_array(name: "tags")
-      title: property(name: "title")
-      author: property(name: "author")
-      status: property(name: "status")
-      release_date: property(name: "release_date")
-      detailed_content: property(name: "detailed_content")
-      timeline_content: property(name: "timeline_content")
-      enable_details_page: property(name: "enable_details_page")
+      updated_at
+      properties
     }
   }
 }

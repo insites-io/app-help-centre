@@ -5,7 +5,8 @@
 {%- assign categories = '[]' | parse_json -%}
 {%- for property in properties -%}
 	{%- if property.name == "category" -%}
-		{%- assign categories = property.metadata.values -%}
+		{%- assign categories = property.metadata.options -%}
+        {%- assign categories_property = property -%}
   	{%- endif -%}
 {%- endfor -%}
 

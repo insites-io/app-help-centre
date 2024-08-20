@@ -1,0 +1,44 @@
+query get_documentations(
+	$page: Int = 1,
+	$size: Int = 1000,
+	$properties: [PropertyFilterInput!]
+) {
+  items: models(
+    page: $page,
+    per_page: $size,
+    filter: {
+      deleted_at: {
+        exists: false
+      },
+      model_schema_name: {
+        value: "modules/ins_template_help_centre/documentation"
+      },
+      properties: $properties
+    },
+    sort: [
+      { 
+        properties: {
+          name: "order",
+          order: ASC
+        }
+      }
+    ]
+  ) {
+    total_entries
+    total_pages
+    current_page
+    has_next_page
+    has_previous_page
+    per_page
+    results {
+      id
+      slug: property(name: "slug")
+      title: property(name: "title")
+      menu_label: property(name: "menu_label")
+      parent_category: property(name: "parent_category")
+      section: property(name: "section")
+      order: property(name: "order")
+      show_in_footer: property_boolean(name: "shown_in_footer_menu")
+    }
+  }
+}
