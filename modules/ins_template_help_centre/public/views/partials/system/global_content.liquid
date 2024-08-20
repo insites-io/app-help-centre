@@ -1,10 +1,15 @@
+---
+metadata: {
+  partial_name: "Global Content"
+}
+---
+
 {%- comment -%} 
-Gets 'Insites Site Manger - Global Content' data and exports it to be usable as a 'partial' data export.
+Gets 'Global Content' data and exports it to be usable as a 'partial' data export.
 {%- endcomment -%}
 
-{%- if context.modules.insites_site_manager -%}
-    {%- graphql global = 'modules/ins_template_help_centre/system/get_global_content' -%}
-    {%- assign global = global.items.results[0] -%}
+
+    {% graphql global = 'modules/insites_cms/globals/get_global_content' %}
 
     {% comment %} Location 1 - concat address {% endcomment %}
     {%- assign loc_1_address_full = "" -%}
@@ -82,4 +87,3 @@ Gets 'Insites Site Manger - Global Content' data and exports it to be usable as 
     {%- assign global = global | add_hash_key: 'loc_3_address_full', loc_3_address_full -%}
 
     {%- export global -%}
-{%- endif -%}
