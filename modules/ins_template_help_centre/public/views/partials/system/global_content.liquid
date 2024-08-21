@@ -9,80 +9,80 @@ Gets 'Global Content' data and exports it to be usable as a 'partial' data expor
 {%- endcomment -%}
 
 
-    {% graphql global = 'modules/insites_cms/globals/get_global_content' %}
+    {% graphql global = 'modules/insites_cms/globals/get_global_content' | dig: 'items','results' | first %}
 
     {% comment %} Location 1 - concat address {% endcomment %}
     {%- assign loc_1_address_full = "" -%}
-    {%- if global.loc_1_address.street_number and global.loc_1_address.street_number != '' -%}
-        {%- assign loc_1_address_full = global.loc_1_address.street_number | append : ", " -%}
+    {%- if global.loc_1_address_1 and global.loc_1_address_1 != '' -%}
+        {%- assign loc_1_address_full = global.loc_1_address_1| append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.address and global.loc_1_address.address != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.address | append : ", " -%}
+    {%- if global.loc_1_address_2 and global.loc_1_address_2 != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address_2 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.address2 and global.loc_1_address.address2 != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.address2 | append : ", " -%}
+    {%- if global.loc_1_address_3 and global.loc_1_address_3 != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address_3 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.city and global.loc_1_address.city != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.city | append : ", " -%}
+    {%- if global.loc_1_city and global.loc_1_city != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_city | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.state and global.loc_1_address.state != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.state | append : " " -%}
+    {%- if global.loc_1_state and global.loc_1_state != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_state | append : " " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.postcode and global.loc_1_address.postcode != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.postcode | append : ", " -%}
+    {%- if global.loc_1_postcode and global.loc_1_postcode != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_postcode | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_1_address.country and global.loc_1_address.country != '' -%}
-        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_address.country | append : " " -%}
+    {%- if global.loc_1_country and global.loc_1_country != '' -%}
+        {%- assign loc_1_address_full = loc_1_address_full | append: global.loc_1_country | append : " " -%}
     {%- endif -%}
     {%- assign global = global | add_hash_key: 'loc_1_address_full', loc_1_address_full -%}
 
     {% comment %} Location 2 - concat address {% endcomment %}
     {%- assign loc_2_address_full = "" -%}
-    {%- if global.loc_2_address.street_number and global.loc_2_address.street_number != '' -%}
-        {%- assign loc_2_address_full = global.loc_2_address.street_number | append : ", " -%}
+    {%- if global.loc_2_address_1 and global.loc_2_address_1 != '' -%}
+        {%- assign loc_2_address_full = global.loc_2_address_1 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.address and global.loc_2_address.address != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.address | append : ", " -%}
+    {%- if global.loc_2_address_2 and global.loc_2_address_2 != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address_2 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.address2 and global.loc_2_address.address2 != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.address2 | append : ", " -%}
+    {%- if global.loc_2_address_3 and global.loc_2_address_3 != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address_3 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.city and global.loc_2_address.city != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.city | append : ", " -%}
+    {%- if global.loc_2_city and global.loc_2_city != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_city | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.state and global.loc_2_address.state != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.state | append : " " -%}
+    {%- if global.loc_2_state and global.loc_2_state != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_state | append : " " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.postcode and global.loc_2_address.postcode != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.postcode | append : ", " -%}
+    {%- if global.loc_2_postcode and global.loc_2_postcode != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_postcode | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_2_address.country and global.loc_2_address.country != '' -%}
-        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_address.country | append : " " -%}
+    {%- if global.loc_2_country and global.loc_2_country != '' -%}
+        {%- assign loc_2_address_full = loc_2_address_full | append: global.loc_2_country | append : " " -%}
     {%- endif -%}
     {%- assign global = global | add_hash_key: 'loc_2_address_full', loc_2_address_full -%}
 
     {% comment %} Location 3 - concat address {% endcomment %}
     {%- assign loc_3_address_full = "" -%}
-    {%- if global.loc_3_address.street_number and global.loc_3_address.street_number != '' -%}
-        {%- assign loc_3_address_full = global.loc_3_address.street_number | append : ", " -%}
+    {%- if global.loc_3_address_1 and global.loc_3_address_1 != '' -%}
+        {%- assign loc_3_address_full = global.loc_3_address_1 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.address and global.loc_3_address.address != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.address | append : ", " -%}
+    {%- if global.loc_3_address_2 and global.loc_3_address_2 != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.lloc_3_address_2 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.address2 and global.loc_3_address.address2 != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.address2 | append : ", " -%}
+    {%- if global.loc_3_address_3 and global.loc_3_address_3 != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address_3 | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.city and global.loc_3_address.city != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.city | append : ", " -%}
+    {%- if global.loc_3_city and global.loc_3_city != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_city | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.state and global.loc_3_address.state != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.state | append : " " -%}
+    {%- if global.loc_3_state and global.loc_3_state != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_state | append : " " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.postcode and global.loc_3_address.postcode != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.postcode | append : ", " -%}
+    {%- if global.loc_3_postcode and global.loc_3_postcode != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_postcode | append : ", " -%}
     {%- endif -%}
-    {%- if global.loc_3_address.country and global.loc_3_address.country != '' -%}
-        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_address.country | append : " " -%}
+    {%- if global.loc_3_country and global.loc_3_country != '' -%}
+        {%- assign loc_3_address_full = loc_3_address_full | append: global.loc_3_country | append : " " -%}
     {%- endif -%}
     {%- assign global = global | add_hash_key: 'loc_3_address_full', loc_3_address_full -%}
 
