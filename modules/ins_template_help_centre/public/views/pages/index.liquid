@@ -41,10 +41,16 @@ dynamic_cache:
 
 {%- include 'modules/ins_template_help_centre/content/search' -%}
 {%- include 'modules/ins_template_help_centre/content/useful_links' -%}
-{%- include_form "modules/ins_template_help_centre/subscribe" -%}
-{%- comment -%}
-{%- include 'modules/ins_template_help_centre/content/subscribe' -%}
-{%- endcomment -%}
+
+{% comment %} 
+Subscription Form 
+** Steps in case you are going to update the subscription form in IIA -> Forms
+-- 1 After updating the settings, click 'Generate Form Code'
+-- 2 Paste this code in Form code box '{% include "modules/ins_template_help_centre/forms/subscribe" %}'
+{% endcomment %}
+{%- include 'modules/insites_forms/form_scripts' -%}
+{%- include_form 'modules/ins_forms/subscribe' -%}
+
 
 <div class="grid-container">
 

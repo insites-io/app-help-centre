@@ -1,0 +1,78 @@
+<div class="subscribe" id="newsletter">
+    <div class="grid-container">
+        <div class="grid-x">
+            <div class="large-12 medium-12 small-12 cell">
+                <div class="spacer xxxx-large"></div>
+                <h2 class="centered">Stay up to date with Insites</h2>
+                <div class="spacer small"></div>
+            </div>
+
+            <div class="large-12 medium-12 small-12 cell">
+                <p class="centered">Subscribe to our newsletter for the latest news and product updates straight to your inbox.</p>
+                <div class="spacer large"></div>
+            </div>
+
+
+        {%- form html-class: 'insites-form insites-form-code' html-name: 'modules/ins_forms/subscribe' html-novalidate: 'novalidate' html-data-form: 'modules/ins_template_help_centre/subscriptions' -%}
+
+            <div class="large-12 medium-12 small-12 cell grid-x grid-padding-x">
+                <div class="large-7 medium-7 small-12 large-offset-2 medium-offset-1 cell">
+                    <ins-input 
+                        id="subscribe-input"
+                        class="auto cell subscribe-component"
+                        data-type="string"
+                        data-ui="input"
+                        label=""
+                        name="{{ form.fields.properties.email.name }}"
+                        value="{{ form.fields.properties.email.value }}"
+                        error-message="{{ form.errors['properties.email'] }}"
+                        {%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'email' -%}
+                        {%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'email' -%}
+                        {%- if form.errors['properties.email'] != nil -%} has-error {%- endif -%} 
+                        {%- include 'modules/insites_forms/form_code/validation/type', form: form, name: 'email' -%} 
+                        {%- include 'modules/insites_forms/form_code/validation/length', form: form, name: 'email' -%}>
+                    </ins-input>
+                </div>
+                <div class="large-3 medium-4 small-12 cell">
+                    <ins-button 
+                        type="submit"
+                        label="Subscribe"
+                        size="large"
+                        solid
+                        color="blue">
+                    </ins-button>
+                    <div class="spacer xxxx-large"></div>
+                </div>
+            </div>
+
+        {%- endform -%}
+
+        </div>
+    </div>
+</div>
+
+<script id="{{ form.name }}">
+    InsitesFormProcessor.setFormProps("{{ form.name }}", "{{ form.system_fields.parent_resource_id }}", {{ form.fields.properties }});
+
+
+    document.addEventListener("DOMContentLoaded", function() { setTimeout(() => {
+        Array.from(document.querySelectorAll("[data-ui='stepper'][data-type='float']")).forEach(stepper => {
+            const inputEl = stepper.querySelector('input')
+            stepper.querySelectorAll('.ins-input-stepper_minus, .ins-input-stepper_plus').forEach(button => {
+                button.addEventListener('click', function() {
+                    setTimeout(() => {
+                        let fixValue = parseFloat(inputEl.value || 0).toFixed(1).toString()
+                        inputEl.value = fixValue.endsWith('.0') ? fixValue.slice(0, -2) : fixValue
+                    }, 20)
+                })
+            })
+        })
+
+      
+
+      	const formsubscribeEl = document.querySelector('form[name="modules/ins_forms/subscribe"]')
+      
+      
+      
+    }, 350) })
+</script>
