@@ -37,6 +37,7 @@ ins-drawer.hydrated { display: block; }
     background-color: #FFFFFF;
     padding: 20px .9375rem;
     height: 100px;
+    flex-wrap: nowrap;
 }
 .top-bar-right ul {
     margin-left: 0;
@@ -456,6 +457,10 @@ form{
 
 #recaptcha-v2-wrapper[has-error="true"] .ins-form-error{
     display: block;
+}
+
+.ins-form-field-wrap {
+    margin-bottom: 20px !important;
 }
 
 
