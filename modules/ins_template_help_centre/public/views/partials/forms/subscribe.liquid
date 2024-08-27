@@ -26,11 +26,11 @@
                         name="{{ form.fields.properties.email.name }}"
                         value="{{ form.fields.properties.email.value }}"
                         error-message="{{ form.errors['properties.email'] }}"
-                        {%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'email' -%}
-                        {%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'email' -%}
-                        {%- if form.errors['properties.email'] != nil -%} has-error {%- endif -%} 
-                        {%- include 'modules/insites_forms/form_code/validation/type', form: form, name: 'email' -%} 
-                        {%- include 'modules/insites_forms/form_code/validation/length', form: form, name: 'email' -%}>
+                        {% include 'modules/insites_forms/form_code/placeholder', form: form, name: 'email' -%}
+                        {% include 'modules/insites_forms/form_code/validation/required', form: form, name: 'email' -%}
+                        {% if form.errors['properties.email'] != nil -%} has-error {%- endif -%} 
+                        {% include 'modules/insites_forms/form_code/validation/type', form: form, name: 'email' -%} 
+                        {% include 'modules/insites_forms/form_code/validation/length', form: form, name: 'email' -%}>
                     </ins-input>
                 </div>
                 <div class="large-3 medium-4 small-12 cell">
