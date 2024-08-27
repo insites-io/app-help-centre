@@ -29,31 +29,3 @@ metadata: {
         <div class="spacer small"></div>
     </div>
 </div>
-
-{%- comment -%}
-<script>
-    var searchKey = document.getElementById('search-input');
-    function goToSearch (){
-        var empty = checkIfEmpty(searchKey.value);
-        if (!empty){
-            window.location.href = "/search?keyword=" + searchKey.value;
-        }
-    }
-    function checkIfEmpty(searchString){
-        if(searchKey.value == ""){
-            searchKey.setAttribute("has-error", "");
-            return true;
-        }else{
-            searchKey.removeAttribute("has-error");
-            return false;
-        }
-    }
-    searchKey.addEventListener('insIconClick', goToSearch);
-    searchKey.addEventListener('insInput', e => {
-        if (e.detail.keyCode === 13) goToSearch();
-    });
-    searchKey.addEventListener('insValueChange', e => {
-        checkIfEmpty(searchKey.value);
-    });
-</script>
-{%- endcomment -%}

@@ -24,8 +24,7 @@ metadata: {
             setTimeout(() => {
                 let path = window.location.pathname;
                 let el = document.querySelector(`ins-accordion-link[link="${path}"]`);
-                if (!el) el = document.querySelector(`ins-accordion-item[link="${path}"]`);
-                el.classList.add('active-link');
+                if (el) el.classList.add('active-link');
                 
                 while (el){
                     routes.push(el);

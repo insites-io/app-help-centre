@@ -10,7 +10,7 @@ let mobileMenuDrawer = document.getElementById('mobile-menu');
 const perPageSelect = document.getElementById('per-page-select');
 
 // Search
-let searchKey = document.getElementById('search-input');
+var searchKey = document.getElementById('search-input');
 
 // Track My Package
 let tracking_number = document.getElementById('tracking-number-input');
@@ -217,7 +217,6 @@ let App = (function() {
             },
             // Search
             initSearch(){
-                searchKey = document.getElementById('search-input');
                 if (searchKey) {
                     searchKey.addEventListener('insIconClick', App.events.goToSearch);
                     searchKey.addEventListener('insInput', e => {
