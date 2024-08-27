@@ -1,0 +1,13 @@
+query get_latest($table: String) {
+  records(
+    per_page: 1
+    filter: {table: {value: $table}}
+    sort: [{updated_at: {order: DESC}}]
+  ) {
+    results {
+      table
+      id
+      updated_at      
+    }
+  }
+}

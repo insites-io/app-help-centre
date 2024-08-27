@@ -14,8 +14,8 @@ dynamic_cache:
   key: >
     {%- assign title = context.params.title | default: '' -%}
     {%- assign schema_name = title | downcase | replace: " ", "_" -%}
-    {%- assign database_schema = 'modules/ins_template_help_centre/' | append: schema_name -%}
-    {%- graphql res = 'modules/ins_template_help_centre/sidebar/get_latest', database_schema: database_schema -%}
+    {%- assign table = 'modules/ins_template_help_centre/' | append: schema_name -%}
+    {%- graphql res = 'modules/ins_template_help_centre/sidebar/get_latest', table: table -%}
     {%- assign record = res.items.results.first -%}
     {{ 'sidebar_cached_' | append: record.updated_at }}
 ---
