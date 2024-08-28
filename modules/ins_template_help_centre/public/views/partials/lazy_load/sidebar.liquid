@@ -9,7 +9,7 @@ metadata: {
 {%- assign current_slug = context.params.slug2 -%}
 <div data-remote-content="sidebar"></div>
 <script>
-    let url = '/fragments/sidebar';
+    let url = '/api/fragments/sidebar';
     url += '?title={{ title }}';
     url += '&current_slug={{ current_slug }}';
     url += '&parent_slug={{ parent_slug }}';
