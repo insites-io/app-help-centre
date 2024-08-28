@@ -55,6 +55,9 @@ ins-drawer.hydrated { display: block; }
     margin-left: 20px;
     margin-right: 0;
 }
+.top-bar-right li a{
+    display: inline-block;
+}
 .header li.active a {
     color: var(--color-main, #116EC3);
 }
@@ -135,6 +138,20 @@ ins-drawer#mobile-menu .ins-backdrop-wrap {
 /** Sub-Header **/
 
 /** Homepage Banner **/
+.homepage-banner {
+    background-size: contain;
+    min-height: 138px;
+}
+@media screen and (min-width: 0px) and (max-width: 1024px) {
+    .homepage-banner {
+        background-size: cover;
+    }
+}
+@media screen and (min-width: 1130px) {
+    .homepage-banner {
+        background-size: cover;
+    }
+}
 @media screen and (max-width: 639px) {
     .homepage-banner h1 {
         font-size: 1.5rem;

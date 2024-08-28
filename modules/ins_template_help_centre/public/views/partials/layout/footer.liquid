@@ -23,15 +23,15 @@ metadata: {
             
             <div class="grid-x grid-padding-x">
                 <div class="large-4 medium-12 small-12 cell">
-                    <a href="/">
-                        <img class="logo" src="{{ context.exports.global.company_logo.url }}" alt="{{ context.exports.global.company_slogan }}" >
+                    <a href="/" aria-label="Homepage">
+                        <img class="logo" src="{{ context.exports.global.company_logo.url }}" alt="{{ context.exports.global.company_slogan | default: 'Homepage' }}" width="180" height="90">
                     </a>
                     <div class="spacer large show-for-medium-only"></div>
 
                 </div>
 
                 <div class="large-4 medium-12 small-12 cell">
-                    <h5>Documentation</h5>
+                    <h4>Documentation</h4>
                     <div class="spacer medium"></div>
                     <div class="grid-x">
                         {%- for documentation in documentations -%}
@@ -63,7 +63,7 @@ metadata: {
                 <div class="large-4 medium-12 small-12 cell">
                     <div class="grid-x">
                         <div class="large-6 medium-6 small-12 cell">
-                            <h5>Links</h5>
+                            <h4>Links</h4>
                             <div class="spacer medium"></div>
                             <ul>
                                 <li>
@@ -85,7 +85,7 @@ metadata: {
                             </ul>
                         </div>
                         <div class="large-6 medium-6 small-12 cell">
-                            <h5>Discover</h5>
+                            <h4>Discover</h4>
                             <div class="spacer medium"></div>
                             <ul>
                                 <li>
