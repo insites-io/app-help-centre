@@ -37,8 +37,11 @@ metadata: {
   <p><strong>{{ item.short_description }}</strong></p>
   <div class="spacer xx-large"></div>
 
-  <div>
-  {{ item.content | markdown }}
+
+  <div class="markdown">
+    <ins-markdown
+      value="{{ item.content | html_safe }}">
+    </ins-markdown>		
   </div>
 {%- else -%}
   {% redirect_to '/404' %}

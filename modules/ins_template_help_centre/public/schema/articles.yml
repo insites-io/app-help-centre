@@ -41,7 +41,7 @@ properties:
     label: "Content"
     weight: 5
     group_id: "11664835-e84f-4285-9ab4-7ff2e52c0363"
-    ui_element: "html"
+    ui_element: "markdown"
     is_required: false
 - name: meta_description
   type: string

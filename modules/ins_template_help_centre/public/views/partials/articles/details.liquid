@@ -20,7 +20,7 @@ metadata: {
 {%- comment -%} Checking if detail can be display  {%- endcomment -%}
 
 {%- if is_displayed -%}
-	<div class="articles grid-container">
+	<div class="articles grid-container markdown">
 		<div class="spacer xxxx-large"></div>
 		<div class="grid-x grid-padding-x">
 			<div class="small-12 medium-12 large-8 large-offset-2 cell text-center">
@@ -43,7 +43,9 @@ metadata: {
 		</div>
 		<div class="grid-x">
 			<div class="small-12 medium-12 large-8 large-offset-2 cell">
-				{{ item.content | html_safe }}
+			<ins-markdown
+        		value="{{ item.content | html_safe }}">
+      		</ins-markdown>				
 			</div>
 		</div>
 		

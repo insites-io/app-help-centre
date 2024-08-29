@@ -33,10 +33,10 @@ metadata: {
                 <div class="large-4 medium-12 small-12 cell">
                     <h4>Documentation</h4>
                     <div class="spacer medium"></div>
-                    <div class="grid-x">
+                    
                         {%- for documentation in documentations -%}
                             {%- if documentation.parent_category == null -%}
-                                <div class="large-6 medium-6 small-12 cell">
+                               
                                     <ul>
                                         <li>
                                             <a href="/documentation/{{- documentation.slug -}}">{{ documentation.title }}</a>
@@ -53,10 +53,10 @@ metadata: {
                                             {%- endif -%}
                                         {%- endfor -%}
                                     </ul>
-                                </div>
+                               
                             {%- endif -%}
                         {%- endfor -%}
-                    </div>
+                    
                     <div class="spacer large show-for-medium-only"></div>
                 </div>
 

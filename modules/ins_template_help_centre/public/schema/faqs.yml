@@ -33,7 +33,7 @@ properties:
     group_id: "9631b8c0-527c-4a8f-9074-35dccddfdb59"
     ui_element: "toggle"
     help_text_tooltip: "Toggle this on if you want this to be featured in the Featured FAQ's."
-    is_shown_in_table: false
+    is_shown_in_table: true
 - name: file_download
   type: upload
   metadata:
@@ -88,4 +88,4 @@ properties:
     group_id: "9631b8c0-527c-4a8f-9074-35dccddfdb59"
     ui_element: "select"
     is_required: true
-    is_shown_in_table: false
+    is_shown_in_table: true

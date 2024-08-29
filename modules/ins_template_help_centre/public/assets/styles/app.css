@@ -370,6 +370,19 @@ ins-drawer#mobile-menu .ins-backdrop-wrap {
 /** FAQs **/
 
 
+/** Markdown **/
+.markdown h3, .markdown h2, .markdown p, .markdown ul, .markdown ol{
+    margin-bottom: 24px;
+}
+.markdown li{
+    margin-bottom: 16px;
+}
+.markdown li ul, .markdown li ol{
+    margin-top: 16px;
+}
+/** Markdown **/
+
+
 /** Articles **/
 .articles a:hover h3 {
     color: var(--color-main, #116EC3);

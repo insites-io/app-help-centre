@@ -163,7 +163,7 @@ properties:
     ui_element: "select"
     is_required: false
     help_text_tooltip: "You can utilise the 'draft' status when you would like to work on some content before releasing it. To to preview your draft content on your websute, add \"?preview=true\" to the contents URL."
-    is_shown_in_table: false
+    is_shown_in_table: true
 - name: tags
   type: array
   belongs_to: modules/ins_template_help_centre/tags
