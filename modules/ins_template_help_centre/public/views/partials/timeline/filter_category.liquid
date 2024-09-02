@@ -10,7 +10,7 @@ metadata: {
 {% for prop in props %}
     {%- if prop.name == "category" -%}
         {%- assign options = "All" | split: ',' -%}
-        {%- assign options = options | add_to_array: prop.metadata.values | flatten -%}
+        {%- assign options = options | add_to_array: prop.metadata.options | flatten -%}
         {%- assign category = context.params.category | default: "" -%}
         {%- assign has_category = options | any: category -%}
 

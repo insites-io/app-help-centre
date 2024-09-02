@@ -33,7 +33,7 @@ properties:
     ui_element: "select"
     is_required: false
     help_text_tooltip: "Use categories to orgainse your content into relevant groups."
-    is_shown_in_table: false
+    is_shown_in_table: true
 - name: detailed_content
   type: string
   metadata:
