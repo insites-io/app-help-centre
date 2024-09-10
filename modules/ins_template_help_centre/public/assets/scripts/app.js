@@ -154,6 +154,7 @@ let App = (function() {
             perPage(per_page, category) {
                 let path = window.location.pathname;
                 let params =  new URLSearchParams(window.location.search);
+                params.set('page', 1);
                 params.set('per_page', per_page);
                 if (category) params.set('category', category);
 

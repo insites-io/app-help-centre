@@ -8,7 +8,7 @@ metadata: {
 {%- assign params = "" | split: "," -%}
 {%- assign slug = "" -%}
 
-{%- if context.params.slug != "change-log" -%}
+{%- if context.params.slug != "timeline" -%}
     {%- assign slug = context.params.slug | prepend: "/" -%}
 {%- endif -%}
 
@@ -37,15 +37,19 @@ metadata: {
     </select>
 
     {%- assign to = data.per_page | times: data.current_page -%}
+    {%- assign to_text = to -%}
+    {%- if to > data.total_entries -%}
+        {%- assign to_text = data.total_entries -%}
+    {%- endif -%}
     {%- assign from = to | minus: data.per_page | plus: 1 -%}
     <span>
-        {{ from }}-{{ to }} of {{ data.total_entries }}
+        {{ from }}-{{ to_text }} of {{ data.total_entries }}
     </span>
     
     {%- if data.has_previous_page == true -%}
     
         <a class="color-font-head"
-            href="{{ slug }}/change-log?page={{ data.current_page | minus: 1 }}{{ params }}">
+            href="{{ slug }}/timeline?page={{ data.current_page | minus: 1 }}{{ params }}">
 
             <span class="icon-chevron-left"></span>
         </a>
@@ -55,7 +59,7 @@ metadata: {
 
     {%- if data.has_next_page == true -%}
         <a class="color-font-head"
-            href="{{ slug }}/change-log?page={{ data.current_page | plus: 1 }}{{ params }}">
+            href="{{ slug }}/timeline?page={{ data.current_page | plus: 1 }}{{ params }}">
 
             <span class="icon-chevron-right"></span>
         </a>
