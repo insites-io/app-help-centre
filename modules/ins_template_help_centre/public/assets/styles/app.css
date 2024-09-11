@@ -96,6 +96,17 @@
 }
 /** Spacers **/
 
+/** Buttons **/
+ins-button button.size--small {
+    height: initial !important;
+    min-height: 24px;
+}
+
+ins-accordion-item ins-button button.size--small {
+    padding: 4px 8px !important;
+}
+/** Buttons **/
+
 
 /** Main Menu **/
 ins-drawer { display: none; }

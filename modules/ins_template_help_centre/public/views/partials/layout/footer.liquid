@@ -4,6 +4,20 @@ metadata: {
 }
 ---
 
+<script>
+const accordionItems = document.querySelectorAll('ins-accordion-item');
+if (accordionItems.length > 0) {
+  accordionItems.forEach(accordionItem => {    
+    accordionItem.addEventListener('click', event => {
+        const willShow = document.querySelector('.ins-accordion-item.open .ins-accordion-item_content.will-show');
+        if (willShow) {
+            willShow.style.maxHeight = 'initial';
+        }
+    });
+  });
+}
+</script>
+
 {%- parse_json filter -%}
     {
         "value_boolean": true,

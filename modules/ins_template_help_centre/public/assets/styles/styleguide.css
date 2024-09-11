@@ -101,8 +101,8 @@ hr {
 }
 @media screen and (max-width: 639px) {
     .grid-container {
-        padding-left: 30px;
-        padding-right: 30px;
+        padding-left: 24px;
+        padding-right: 24px;
     }
 }
 
