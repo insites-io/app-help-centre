@@ -14,7 +14,7 @@ query get_contact_us_attachment(
         value: $id
       },
       model_schema_name: {
-        value: "modules/ins_template_help_centre/contact_us"
+        value: "modules/help_centre/contact_us"
       }
     }
   ) {

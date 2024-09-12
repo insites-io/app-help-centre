@@ -166,7 +166,7 @@ properties:
     is_shown_in_table: true
 - name: tags
   type: array
-  belongs_to: modules/ins_template_help_centre/tags
+  belongs_to: modules/help_centre/tags
   metadata:
     label: "Tags"
     weight: 1

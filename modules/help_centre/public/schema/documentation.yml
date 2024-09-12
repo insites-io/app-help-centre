@@ -181,7 +181,7 @@ properties:
     is_shown_in_table: false
 - name: parent_category
   type: string
-  belongs_to: modules/ins_template_help_centre/documentation
+  belongs_to: modules/help_centre/documentation
   metadata:
     label: "Parent Category"
     weight: 9

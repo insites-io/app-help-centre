@@ -4,7 +4,7 @@ metadata: {
 }
 ---
 
-{%- graphql res = "modules/ins_template_help_centre/timeline/get_timeline_schema" -%}
+{%- graphql res = "modules/help_centre/timeline/get_timeline_schema" -%}
 {%- assign props = res.items.results.first.properties -%}
 
 {% for prop in props %}

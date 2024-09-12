@@ -1,7 +1,7 @@
 {%- comment -%} Useful Links {%- endcomment -%}
 {%- assign labels = "Sales Brochure, Support Packages, Platform Flyer" | split: ',' -%}
 {%- for label in labels -%}
-    {%- graphql create_article_entry = "modules/ins_template_help_centre/useful_links/create_useful_link", 
+    {%- graphql create_article_entry = "modules/help_centre/useful_links/create_useful_link", 
         label: label, sort_order: label.index
     -%}
 {%- endfor -%}
@@ -22,7 +22,7 @@
     {%- else -%}
         {%- assign color = "red" -%}
     {%- endif -%}
-    {%- graphql create_tag_entry = "modules/ins_template_help_centre/tags/create_tag", 
+    {%- graphql create_tag_entry = "modules/help_centre/tags/create_tag", 
         name: name, 
         color: color,
         icon: icon
@@ -46,7 +46,7 @@
           "file_download": {},
           "file_download_label": null
         },
-        "type_name": "modules/ins_template_help_centre/faqs"
+        "type_name": "modules/help_centre/faqs"
     },
     {
         "properties": {
@@ -59,7 +59,7 @@
           "file_download": "",
           "file_download_label": ""
         },
-        "type_name": "modules/ins_template_help_centre/faqs"
+        "type_name": "modules/help_centre/faqs"
     },
     {
         "properties": {
@@ -70,14 +70,14 @@
           "question": "How do I track my order status?",
           "sort_order": 2,
           "file_download": {
-            "path": "{{ 'modules/ins_template_help_centre/collections/packaging-guide.pdf' | asset_url  }}",
+            "path": "{{ 'modules/help_centre/collections/packaging-guide.pdf' | asset_url  }}",
             "versions": {},
             "extension": "pdf",
             "file_name": "packaging-guide.pdf"
           },
           "file_download_label": "Packaging Guide.pdf"
         },
-        "type_name": "modules/ins_template_help_centre/faqs"
+        "type_name": "modules/help_centre/faqs"
     }
 ]{% endparse_json %}
 
@@ -120,7 +120,7 @@
           "timeline_content": "* Fixed Export Database Items blank exported CSV file.\n* Fixed Import Database Items stuck in progress.",
           "enable_details_page": null
         },
-        "type_name": "modules/ins_template_help_centre/timeline"
+        "type_name": "modules/help_centre/timeline"
     },
     {
         "properties": {
@@ -146,7 +146,7 @@
           "timeline_content": "* Insites Components v2.9.0\n* New component ins-input-phone\n* New ins-button attribute icon-right\n* New ins-accordion-item attribute open-icon and close-icon",
           "enable_details_page": null
         },
-        "type_name": "modules/ins_template_help_centre/timeline"
+        "type_name": "modules/help_centre/timeline"
     },
     {
         "properties": {
@@ -172,7 +172,7 @@
           "timeline_content": "* Applied updates & fixes across usage of \"wrapper and grid\" on home v2\n* Code cleanup for 'spacers' usage to improve code and maximize use of available classes, for example;\n* instead of codes using multiple \"spacer\", now just use \"spacer section\"\n* instead of using spacers, some are removed to just rely on grid xy padding",
           "enable_details_page": null
         },
-        "type_name": "modules/ins_template_help_centre/timeline"
+        "type_name": "modules/help_centre/timeline"
     }
 ]{% endparse_json %}
 
@@ -212,7 +212,7 @@
           "og_description": null,
           "meta_description": null
         },
-        "type_name": "modules/ins_template_help_centre/articles"
+        "type_name": "modules/help_centre/articles"
     },
     {
         "properties": {
@@ -235,7 +235,7 @@
           "og_description": null,
           "meta_description": null
         },
-        "type_name": "modules/ins_template_help_centre/articles"
+        "type_name": "modules/help_centre/articles"
     },
     {
         "properties": {
@@ -258,7 +258,7 @@
           "og_description": null,
           "meta_description": null
         },
-        "type_name": "modules/ins_template_help_centre/articles"
+        "type_name": "modules/help_centre/articles"
     }
 ]{% endparse_json %}
 
@@ -302,7 +302,7 @@
           "shown_in_footer_menu": true,
           "shown_in_sidebar_menu": true
         },
-        "type_name": "modules/ins_template_help_centre/documentation"
+        "type_name": "modules/help_centre/documentation"
     },
     {
         "properties": {
@@ -329,7 +329,7 @@
           "shown_in_footer_menu": true,
           "shown_in_sidebar_menu": true
         },
-        "type_name": "modules/ins_template_help_centre/documentation"
+        "type_name": "modules/help_centre/documentation"
     },
     {
         "properties": {
@@ -356,7 +356,7 @@
           "shown_in_footer_menu": true,
           "shown_in_sidebar_menu": true
         },
-        "type_name": "modules/ins_template_help_centre/documentation"
+        "type_name": "modules/help_centre/documentation"
     }
 ]{% endparse_json %}
 

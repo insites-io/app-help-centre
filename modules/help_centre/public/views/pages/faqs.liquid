@@ -1,6 +1,6 @@
 ---
 slug: faqs
-layout: modules/ins_template_help_centre/default_layout
+layout: modules/help_centre/default_layout
 searchable: true
 max_deep_level: 3
 metadata: {
@@ -22,11 +22,11 @@ dynamic_cache:
     {%- parse_json models -%}
     [
       "modules/insites_cms/global",
-      "modules/ins_template_help_centre/faqs",
-      "modules/ins_template_help_centre/documentation"
+      "modules/help_centre/faqs",
+      "modules/help_centre/documentation"
     ]
     {%- endparse_json -%}
-    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 {%- assign category = context.params.category -%}
 <div class="faqs grid-container">
@@ -38,8 +38,8 @@ dynamic_cache:
 	<div class="spacer xxxx-large"></div>
 	<div class="grid-x grid-padding-x">
 		<div class="small-12 medium-4 large-3 cell">
-			{%- include 'modules/ins_template_help_centre/content/sidebar/category_sidebar',
-				database_name: "modules/ins_template_help_centre/faqs",
+			{%- include 'modules/help_centre/content/sidebar/category_sidebar',
+				database_name: "modules/help_centre/faqs",
 				all_link: context.page.slug,
 				title: "FAQs"
 			-%}
@@ -53,7 +53,7 @@ dynamic_cache:
 			{%- assign page = context.params.page | default: 1 | plus: 0 -%}
 			{%- assign per_page = context.params.per_page | default: 10 | plus: 0 -%}
 
-			{%- graphql faqs = 'modules/ins_template_help_centre/faqs/get_faqs' 
+			{%- graphql faqs = 'modules/help_centre/faqs/get_faqs' 
 				page: page,
 				size: per_page,
 				category: context.params.category
@@ -92,7 +92,7 @@ dynamic_cache:
 				</ins-accordion>
     			<div class="spacer xx-large"></div>
 				
-				{%- include 'modules/ins_template_help_centre/content/pagination/category_pagination',
+				{%- include 'modules/help_centre/content/pagination/category_pagination',
 					data: faqs.items,
 					per_page: per_page -%}
 			{%- endif -%}

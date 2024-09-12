@@ -5,12 +5,12 @@ metadata: {
 ---
 
 {%- assign schema_name = title | downcase | replace: " ", "_" -%}
-{%- assign database_schema = "modules/ins_template_help_centre/" | append: schema_name -%}
+{%- assign database_schema = "modules/help_centre/" | append: schema_name -%}
 {%- assign date_now = "now" | date: "%Y-%m-%d" -%}
 {%- assign main_link = "/" | append: parent_slug | append: "/"  -%}
 
-{%- function root = "modules/ins_template_help_centre/content/sidebar/tree",
-    query_path: "modules/ins_template_help_centre/sidebar/get_parent_menu",
+{%- function root = "modules/help_centre/content/sidebar/tree",
+    query_path: "modules/help_centre/sidebar/get_parent_menu",
     database_schema: database_schema,
     date_now: date_now,
     main_link: main_link,
@@ -20,5 +20,5 @@ metadata: {
     <h3 class="hide-for-small-only">{{ title }}</h3>
     <div class="spacer medium hide-for-small-only"></div>
     
-    {%- include "modules/ins_template_help_centre/content/sidebar/renderer", menus: root.menus -%}
+    {%- include "modules/help_centre/content/sidebar/renderer", menus: root.menus -%}
 </div>

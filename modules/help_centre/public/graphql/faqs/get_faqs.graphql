@@ -7,7 +7,7 @@ query get_faqs($page: Int = 1, $size: Int = 10, $category: String, $featured: Bo
         exists: false
       },
       table: {
-        value: "modules/ins_template_help_centre/faqs"
+        value: "modules/help_centre/faqs"
       },
       properties: 
         [

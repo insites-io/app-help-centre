@@ -15,7 +15,7 @@ mutation create_documentation(
 ) {
   items: model_create(
     model: {
-      model_schema_name: "modules/ins_template_help_centre/documentation",
+      model_schema_name: "modules/help_centre/documentation",
       properties: [
         { 
           name: "slug",

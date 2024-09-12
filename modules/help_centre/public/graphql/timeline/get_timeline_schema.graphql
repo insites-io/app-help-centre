@@ -3,7 +3,7 @@ query get_timeline_schema {
     per_page: 1,
     filter: {
       name: {
-        value: "modules/ins_template_help_centre/timeline"
+        value: "modules/help_centre/timeline"
       }
     }
   ){

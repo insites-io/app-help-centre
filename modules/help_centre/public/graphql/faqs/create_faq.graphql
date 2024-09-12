@@ -6,7 +6,7 @@ mutation create_faq(
 ) {
   items: model_create(
     model: {
-      model_schema_name: "modules/ins_template_help_centre/faqs",
+      model_schema_name: "modules/help_centre/faqs",
       properties: [
         { 
           name: "question",

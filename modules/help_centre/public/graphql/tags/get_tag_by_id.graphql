@@ -9,7 +9,7 @@ query get_tag_by_id($id: ID!) {
         exists: false
       },
       model_schema_name: {
-        value: "modules/ins_template_help_centre/tags"
+        value: "modules/help_centre/tags"
       }
     }
   ) {

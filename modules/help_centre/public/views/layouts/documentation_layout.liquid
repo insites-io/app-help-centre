@@ -26,10 +26,10 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         {%- comment -%} Global Content Partial{%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/system/global_content' -%}
+        {%- include 'modules/help_centre/system/global_content' -%}
 
         {%- comment -%} Favicon Partial {%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/layout/favicons' -%}
+        {%- include 'modules/help_centre/layout/favicons' -%}
 
         {%- comment -%} SEO Metadata {%- endcomment -%}
         {%- include 'modules/insites_cms/seo' -%}
@@ -38,11 +38,11 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         Assets like 'Google Map API', should only be referenced as needed.
         - Managed on the 'page / layout' level
         {%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/layout/technical_head' -%}
+        {%- include 'modules/help_centre/layout/technical_head' -%}
     </head>
     <body>
-        {%- include 'modules/ins_template_help_centre/layout/header' -%}
-        {%- include 'modules/ins_template_help_centre/layout/sub_header' -%}
+        {%- include 'modules/help_centre/layout/header' -%}
+        {%- include 'modules/help_centre/layout/sub_header' -%}
 
         <div class="documentation grid-container">
             <div class="grid-x grid-padding-x">
@@ -54,7 +54,7 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
                 <div class="small-12 medium-4 large-3 cell documentation-sidebar">
                     <div class="spacer large show-for-small-only"></div>
                     <div class="spacer xxxx-large hide-for-small-only"></div>
-                    {%- include 'modules/ins_template_help_centre/lazy_load/sidebar' -%}
+                    {%- include 'modules/help_centre/lazy_load/sidebar' -%}
                     <div class="spacer xxxx-large hide-for-small-only"></div>
                 </div>
                 <div class="small-12 medium-8 large-9 cell">
@@ -66,7 +66,7 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
             </div>
         </div>
     
-        {%- include 'modules/ins_template_help_centre/layout/footer' -%}
-        {%- include 'modules/ins_template_help_centre/layout/technical_footer' -%}
+        {%- include 'modules/help_centre/layout/footer' -%}
+        {%- include 'modules/help_centre/layout/technical_footer' -%}
     </body>
 </html>

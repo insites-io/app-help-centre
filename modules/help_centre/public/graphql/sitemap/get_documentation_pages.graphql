@@ -9,7 +9,7 @@ query get_documentation_pages (
       per_page: $per_page,
       filter: {
         model_schema_name: { 
-          value: "modules/ins_template_help_centre/documentation"
+          value: "modules/help_centre/documentation"
         },
         deleted_at: { 
           exists: false 

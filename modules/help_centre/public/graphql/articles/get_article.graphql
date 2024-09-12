@@ -13,7 +13,7 @@ query get_article(
         exists: false
       },
       table: {
-        value: "modules/ins_template_help_centre/articles"
+        value: "modules/help_centre/articles"
       },
       properties: [
         { 

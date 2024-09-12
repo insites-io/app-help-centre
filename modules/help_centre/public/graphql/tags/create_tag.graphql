@@ -5,7 +5,7 @@ mutation create_tag(
 ) {
   items: model_create(
     model: {
-      model_schema_name: "modules/ins_template_help_centre/tags",
+      model_schema_name: "modules/help_centre/tags",
       properties: [
         { 
           name: "name",

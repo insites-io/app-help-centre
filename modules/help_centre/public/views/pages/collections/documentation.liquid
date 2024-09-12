@@ -1,12 +1,12 @@
 ---
 slug: documentation
-layout: modules/ins_template_help_centre/documentation_layout
+layout: modules/help_centre/documentation_layout
 searchable: true
 max_deep_level: 2,
 metadata: {
   "page_name": "Documentation",
   "database_id": "1750519",
-  "source_name": "modules/ins_template_help_centre/documentation",
+  "source_name": "modules/help_centre/documentation",
   "is_list_layout_enabled": true,
   "is_details_layout_enabled": true,  
   "page_title": "Documentation",
@@ -18,17 +18,17 @@ dynamic_cache:
     {%- parse_json models -%}
     [
       "modules/insites_cms/global",
-      "modules/ins_template_help_centre/documentation"
+      "modules/help_centre/documentation"
     ]
     {%- endparse_json -%}
-    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 
 {%- if context.params.slug2 != blank -%}
-    {%- graphql item = 'modules/ins_template_help_centre/documentation/get_documentation', 
+    {%- graphql item = 'modules/help_centre/documentation/get_documentation', 
 	              slug: context.params.slug2 | dig: 'items','results' | first | dig: 'properties' -%}
 
-    {%- include "modules/ins_template_help_centre/documentation/details", item: item -%}  
+    {%- include "modules/help_centre/documentation/details", item: item -%}  
 {%- else -%}
-    {%- include "modules/ins_template_help_centre/documentation/list" -%}      
+    {%- include "modules/help_centre/documentation/list" -%}      
 {%- endif -%}

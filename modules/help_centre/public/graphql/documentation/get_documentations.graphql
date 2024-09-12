@@ -11,7 +11,7 @@ query get_documentations(
         exists: false
       },
       model_schema_name: {
-        value: "modules/ins_template_help_centre/documentation"
+        value: "modules/help_centre/documentation"
       },
       properties: $properties
     },

@@ -15,7 +15,7 @@ metadata: {
     {%- assign category = timeline_category -%}
 {%- endif -%}
 
-{%- graphql timeline = 'modules/ins_template_help_centre/timeline/get_timelines' 
+{%- graphql timeline = 'modules/help_centre/timeline/get_timelines' 
     page: page,
     size: per_page,
     date_today: date_today,
@@ -41,7 +41,7 @@ metadata: {
                                 <div class="spacer x-small"></div>
                                 <div class="grid-x">
                                     <div class="small-12 medium-6 large-9 cell">
-                                        {%- include "modules/ins_template_help_centre/timeline/tags", 
+                                        {%- include "modules/help_centre/timeline/tags", 
                                             tag_ids: timeline_item.tags -%}
                                     </div>
                                     <div class="small-12 medium-6 large-3 cell medium-text-right text-left">
@@ -64,7 +64,7 @@ metadata: {
                 {%- endfor -%}
             </ins-timeline>
             <div class="spacer xx-large"></div>
-            {%- include "modules/ins_template_help_centre/timeline/pagination",
+            {%- include "modules/help_centre/timeline/pagination",
                 data: timeline.items,
                 per_page: per_page -%}
         {%- endif -%}

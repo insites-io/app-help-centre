@@ -24,7 +24,7 @@ if (accordionItems.length > 0) {
         "name": "shown_in_footer_menu"
     }      
 {%- endparse_json -%}
-{%- graphql database_documentation = 'modules/ins_template_help_centre/documentation/get_documentations' 
+{%- graphql database_documentation = 'modules/help_centre/documentation/get_documentations' 
     properties: filter
 -%}
 {%- assign documentations = database_documentation.items.results -%}

@@ -1,6 +1,6 @@
 ---
 slug: contact-us
-layout: modules/ins_template_help_centre/default_layout
+layout: modules/help_centre/default_layout
 searchable: true
 max_deep_level: 1
 metadata: {
@@ -25,7 +25,7 @@ metadata: {
 {%- endparse_json -%}
 {%- assign breadcrumb = breadcrumb | add_to_array: breadcrumb_item -%}
 
-{%- include 'modules/ins_template_help_centre/content/homepage_banner', 
+{%- include 'modules/help_centre/content/homepage_banner', 
   title: "Contact Us" -%}
 
 <div class="sub-header"> 
@@ -91,4 +91,4 @@ metadata: {
 </div>
 
  
- <script src="{{ 'modules/ins_template_help_centre/scripts/contact_us.js' | asset_url }}"></script>
+ <script src="{{ 'modules/help_centre/scripts/contact_us.js' | asset_url }}"></script>

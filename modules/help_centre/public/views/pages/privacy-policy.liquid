@@ -1,6 +1,6 @@
 ---
 slug: privacy-policy
-layout: modules/ins_template_help_centre/default_layout
+layout: modules/help_centre/default_layout
 metadata: {
     "page_name": "Privacy Policy",
     "page_title": "Privacy Policy",
@@ -20,10 +20,10 @@ dynamic_cache:
     {%- parse_json models -%}
     [
       "modules/insites_cms/global",
-      "modules/ins_template_help_centre/documentation"
+      "modules/help_centre/documentation"
     ]
     {%- endparse_json -%}
-    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 
 <div class="grid-container">

@@ -12,7 +12,7 @@ metadata: {
 {%- endparse_json -%}
 
 {% capture cache_key %}
-{%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+{%- include "modules/help_centre/generate_cache_key", models: models -%}
 {% endcapture %}
 
 {%- export cache_key, namespace: 'layout_cache_key' -%}

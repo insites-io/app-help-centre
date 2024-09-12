@@ -13,7 +13,7 @@ mutation create_timeline(
 ) {
   items: model_create(
     model: {
-      model_schema_name: "modules/ins_template_help_centre/timeline",
+      model_schema_name: "modules/help_centre/timeline",
       properties: [
         { 
           name: "slug",

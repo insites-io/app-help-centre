@@ -14,12 +14,12 @@ because the page will be cached base on the cache key
 {%- endcomment -%}
 
 {% comment %} GraphQL will pull the latest updated data / record {% endcomment %}
-{%- graphql record_last_updated = "modules/ins_template_help_centre/page_cache/check_records_update_date", 
+{%- graphql record_last_updated = "modules/help_centre/page_cache/check_records_update_date", 
     models: models 
     | fetch: 'items' | fetch: 'results' | first -%}
 
 {% comment %} GraphQL will pull the latest updated files / assets {% endcomment %}
-{%- graphql site_last_updated = "modules/ins_template_help_centre/page_cache/check_site_update_date" -%}
+{%- graphql site_last_updated = "modules/help_centre/page_cache/check_site_update_date" -%}
 
 
 {% comment %} Set an array for the update dates {% endcomment %}

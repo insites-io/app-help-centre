@@ -9,7 +9,7 @@ query get_article_pages (
     per_page: $per_page,
     filter: {
       model_schema_name: { 
-        value: "modules/ins_template_help_centre/articles"
+        value: "modules/help_centre/articles"
       },
       deleted_at: { 
         exists: false 

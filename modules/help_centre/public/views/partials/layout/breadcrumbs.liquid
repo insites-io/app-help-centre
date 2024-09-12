@@ -14,7 +14,7 @@ metadata: {
 {%- endif -%}
 
 {%- if current_slug -%}
-    {%- graphql res = "modules/ins_template_help_centre/breadcrumbs/get_crumb", 
+    {%- graphql res = "modules/help_centre/breadcrumbs/get_crumb", 
         slug: current_slug -%}
 
     {%- assign current_crumb = res.items.results.first -%}
@@ -24,7 +24,7 @@ metadata: {
     {%- endif -%}
 
     {%- if current_crumb.parent_category -%}
-        {%- function crumbs = "modules/ins_template_help_centre/layout/crumbs",  
+        {%- function crumbs = "modules/help_centre/layout/crumbs",  
             crumbs: crumbs, parent_category: current_crumb.parent_category -%}
     {%- endif -%}
 

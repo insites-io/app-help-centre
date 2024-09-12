@@ -4,7 +4,7 @@ metadata: {
 }
 ---
 
-{%- graphql database = 'modules/ins_template_help_centre/system/get_database' 
+{%- graphql database = 'modules/help_centre/system/get_database' 
     database_name: database_name
 -%}
 {%- assign properties = database.items.results[0].properties -%}

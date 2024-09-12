@@ -4,7 +4,7 @@ query get_useful_links {
     per_page: 9, 
     filter: {
       deleted_at: { exists: false },
-      model_schema_name: { value: "modules/ins_template_help_centre/useful_links" }
+      model_schema_name: { value: "modules/help_centre/useful_links" }
     }, 
     sort: [
       { properties: { name: "sort_order", order: ASC } }

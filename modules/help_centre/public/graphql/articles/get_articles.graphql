@@ -12,7 +12,7 @@ query get_articles(
         exists: false
       },
       model_schema_name: {
-        value: "modules/ins_template_help_centre/articles"
+        value: "modules/help_centre/articles"
       },
       properties: [
         { 

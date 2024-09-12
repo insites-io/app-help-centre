@@ -11,7 +11,7 @@ query get_documentation(
         exists: false
       },
       table: {
-        value: "modules/ins_template_help_centre/documentation"
+        value: "modules/help_centre/documentation"
       },
       properties: [
         {name: "slug", value: $slug}

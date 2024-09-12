@@ -1,6 +1,6 @@
 ---
 slug: /
-layout: modules/ins_template_help_centre/default_layout
+layout: modules/help_centre/default_layout
 searchable: true
 max_deep_level: 2
 metadata: {
@@ -29,30 +29,30 @@ dynamic_cache:
     {%- parse_json models -%}
     [
       "modules/insites_cms/global",
-      "modules/ins_template_help_centre/articles",
-      "modules/ins_template_help_centre/useful_links",
-      "modules/ins_template_help_centre/faqs",
-      "modules/ins_template_help_centre/documentation"
+      "modules/help_centre/articles",
+      "modules/help_centre/useful_links",
+      "modules/help_centre/faqs",
+      "modules/help_centre/documentation"
     ]
     {%- endparse_json -%}
-    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 {%- comment -%}
     This is where the contents of the landing page is imported/included in the forms of partials.
 {%- endcomment -%}
 
-{%- include 'modules/ins_template_help_centre/content/homepage_banner', 
+{%- include 'modules/help_centre/content/homepage_banner', 
     title: "Insites Template Help Centre" -%}
 
 
-{%- include 'modules/ins_template_help_centre/content/search' -%}
-{%- include 'modules/ins_template_help_centre/content/useful_links' -%}
+{%- include 'modules/help_centre/content/search' -%}
+{%- include 'modules/help_centre/content/useful_links' -%}
 
 {% comment %} 
 Subscription Form 
 ** Steps in case you are going to update the subscription form in IIA -> Forms
 -- 1 After updating the settings, click 'Generate Form Code'
--- 2 Paste this code in Form code box '{% include "modules/ins_template_help_centre/forms/subscribe" %}'
+-- 2 Paste this code in Form code box '{% include "modules/help_centre/forms/subscribe" %}'
 {% endcomment %}
 {%- include 'modules/insites_forms/form_scripts' -%}
 {%- include_form 'modules/ins_forms/subscribe' -%}
@@ -63,10 +63,10 @@ Subscription Form
     <div class="spacer xxxx-large"></div>
     <div class="grid-x grid-padding-x">
         <div class="small-12 medium-6 large-7 cell">
-            {%- include 'modules/ins_template_help_centre/content/top_faqs' -%}
+            {%- include 'modules/help_centre/content/top_faqs' -%}
         </div>
         <div class="small-12 medium-6 large-4 large-offset-1 cell">
-            {%- include 'modules/ins_template_help_centre/content/recent_articles' -%}
+            {%- include 'modules/help_centre/content/recent_articles' -%}
         </div>
     </div>
     <div class="spacer xxxx-large"></div>

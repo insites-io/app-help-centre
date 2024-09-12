@@ -26,10 +26,10 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         {%- comment -%} Global Content Partial{%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/system/global_content' -%}
+        {%- include 'modules/help_centre/system/global_content' -%}
 
         {%- comment -%} Favicon Partial {%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/layout/favicons' -%}
+        {%- include 'modules/help_centre/layout/favicons' -%}
 
         {%- comment -%} SEO Metadata {%- endcomment -%}
         {%- include 'modules/insites_cms/seo' -%}
@@ -38,11 +38,11 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         Assets like 'Google Map API', should only be referenced as needed.
         - Managed on the 'page / layout' level
         {%- endcomment -%}
-        {%- include 'modules/ins_template_help_centre/layout/technical_head' -%}
+        {%- include 'modules/help_centre/layout/technical_head' -%}
     </head>
     <body class="system-page flex-container flex-dir-column">
         
-        {%- include 'modules/ins_template_help_centre/layout/header' -%}
+        {%- include 'modules/help_centre/layout/header' -%}
         
 
         <div class="system-content">
@@ -50,8 +50,8 @@ It IS NOT accessible in {{content_for_layout}} which includes the specific page
         </div>
         
         {%- comment -%}
-        {%- include 'modules/ins_template_help_centre/layout/footer' -%}
-        {%- include 'modules/ins_template_help_centre/layout/technical_footer' -%}
+        {%- include 'modules/help_centre/layout/footer' -%}
+        {%- include 'modules/help_centre/layout/technical_footer' -%}
         {%- endcomment -%}
     </body>
 </html>

@@ -14,8 +14,8 @@ metadata: {
 {%- if parents.items.total_entries > 0 -%}
     {%- for parent in parents.items.results -%}
 
-        {%- function children = "modules/ins_template_help_centre/content/sidebar/tree",
-            query_path: "modules/ins_template_help_centre/sidebar/get_child_menu",
+        {%- function children = "modules/help_centre/content/sidebar/tree",
+            query_path: "modules/help_centre/sidebar/get_child_menu",
             database_schema: database_schema,
             date_now: date_now,
             parent_id: parent.id,

@@ -14,22 +14,22 @@ dynamic_cache:
   key: >
     {%- assign title = context.params.title | default: '' -%}
     {%- assign schema_name = title | downcase | replace: " ", "_" -%}
-    {%- assign table = 'modules/ins_template_help_centre/' | append: schema_name -%}
-    {%- graphql res = 'modules/ins_template_help_centre/sidebar/get_latest', table: table -%}
+    {%- assign table = 'modules/help_centre/' | append: schema_name -%}
+    {%- graphql res = 'modules/help_centre/sidebar/get_latest', table: table -%}
     {%- assign record = res.items.results.first -%}
     {{ 'sidebar_cached_' | append: record.updated_at }}
     {%- parse_json models -%}
     [
-      "modules/ins_template_help_centre/documentation"
+      "modules/help_centre/documentation"
     ]
     {%- endparse_json -%}
-    {%- include "modules/ins_template_help_centre/generate_cache_key", models: models -%}
+    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 {%- assign title = context.params.title | default: '' -%}
 {%- assign current_slug = context.params.current_slug | default: '' -%}
 {%- assign parent_slug = context.params.parent_slug | default: '' -%}
 
-{%- include 'modules/ins_template_help_centre/content/sidebar/documentation_sidebar', 
+{%- include 'modules/help_centre/content/sidebar/documentation_sidebar', 
     title: title,
     parent_slug: parent_slug,
     current_slug: current_slug -%}

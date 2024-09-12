@@ -13,7 +13,7 @@ query get_timelines(
         exists: false
       },
       model_schema_name: {
-        value: "modules/ins_template_help_centre/timeline"
+        value: "modules/help_centre/timeline"
       },
       properties: [
         {

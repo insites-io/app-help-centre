@@ -8,7 +8,7 @@ mutation create_article(
 ) {
   items: model_create(
     model: {
-      model_schema_name: "modules/ins_template_help_centre/articles",
+      model_schema_name: "modules/help_centre/articles",
       properties: [
         { 
           name: "publish_date",
