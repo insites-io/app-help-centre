@@ -17,8 +17,8 @@ metadata: {
 {%- endfor -%}
 
 <div class="layout-category-sidebar">
-    <h3>Categories</h3>
-    <div class="spacer large hide-for-small-only"></div>
+    <h4>Categories</h4>
+    <div class="spacer large"></div>
     {%- assign params = '[]' | parse_json -%}
     {%- for item in context.params -%}
         {%- assign params = params | add_to_array: item[0] -%}
