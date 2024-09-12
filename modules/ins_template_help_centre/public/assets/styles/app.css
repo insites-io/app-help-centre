@@ -22,91 +22,6 @@
 }
 /** Custom **/
 
-/** Spacers **/
-.spacer {
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 24px;
-}
-
-.spacer.xx-small {
-    padding-bottom: 4px;
-}
-
-.spacer.x-small {
-    padding-bottom: 8px;
-}
-
-.spacer.small {
-    padding-bottom: 16px;
-}
-
-.spacer.large {
-    padding-bottom: 32px;
-}
-
-.spacer.x-large {
-    padding-bottom: 40px;
-}
-
-.spacer.xx-large {
-    padding-bottom: 48px;
-}
-
-.spacer.xxx-large {
-    padding-bottom: 56px;
-}
-
-.spacer.xxxx-large {
-    padding-bottom: 80px;
-}
-
-.spacer.section {
-    padding-bottom: 128px;
-}
-
-@media screen and (min-width: 1440px) {
-    /* insert spacer adjusment for xx-large */
-}
-
-@media screen and (min-width: 1200px) and (max-width: 1439px) {
-    /* insert spacer adjusment for x-large */
-}
-
-@media screen and (min-width: 1024px) and (max-width: 1199px) {
-    /* insert spacer adjusment for large */
-}
-
-
-@media screen and (min-width: 640px) and (max-width: 1023px) {
-    /* insert spacer adjusment for medium */
-}
-
-@media screen and (max-width: 639px) {
-
-    /* insert spacer adjusment for small */
-    .spacer.section {
-        padding-bottom: 80px;
-    }
-
-    .spacer.xxxx-large {
-        padding-bottom: 40px;
-    }
-}
-/** Spacers **/
-
-/** Buttons **/
-ins-button button.size--small {
-    height: initial !important;
-    min-height: 24px;
-}
-
-ins-accordion-item ins-button button.size--small {
-    padding: 4px 8px !important;
-}
-/** Buttons **/
-
 
 /** Main Menu **/
 ins-drawer { display: none; }
@@ -259,6 +174,10 @@ ins-drawer#mobile-menu .ins-backdrop-wrap {
 }
 .layout-category-sidebar .ins-accordion-link:hover {
     background-color: transparent;
+}
+.layout-category-sidebar .ins-accordion-link_link {
+    line-height: 24px;
+    padding: 12px;
 }
 .layout-category-sidebar .ins-accordion-link_link,
 .layout-category-sidebar .ins-accordion-link_link:hover,
