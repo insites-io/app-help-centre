@@ -54,14 +54,18 @@ if (accordionItems.length > 0) {
                                     <ul>
                                         <li>
                                             <a href="/documentation/{{- documentation.slug -}}">{{ documentation.title }}</a>
+                                            {% if forloop.last == false %}
                                             <div class="spacer small"></div>
+                                            {%- endif -%}
                                         </li>
                                         {%- for child_category in documentations -%}
                                             {%- if child_category.parent_category == documentation.title -%}
                                             <ul>
                                                 <li>
                                                     <a href="/documentation/{{- child_category.slug -}}">{{- child_category.title -}}</a>
+                                                    {% if forloop.last == false %}
                                                     <div class="spacer small"></div>
+                                                    {%- endif -%}
                                                 </li>
                                             </ul>
                                             {%- endif -%}
