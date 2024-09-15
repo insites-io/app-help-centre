@@ -1,6 +1,6 @@
 name: subscriptions
 metadata:
-  label: "Subscription Form"
+  label: "Subscription"
   groups: []
   is_archived: false
 properties:
