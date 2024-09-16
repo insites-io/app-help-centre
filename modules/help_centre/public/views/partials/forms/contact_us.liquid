@@ -1,0 +1,152 @@
+{%- form html-class: 'insites-form insites-form-code' html-name: 'modules/ins_forms/contact_us' html-novalidate: 'novalidate' html-data-form: 'modules/help_centre/contact_us' -%}
+
+<div class="insites-form-grid">
+	<!-- Field: First Name -->
+	<div class="column-2">
+		<ins-input 
+			id="0"
+			data-type="string"
+			data-ui="input"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'first_name' -%}"
+			name="{{ form.fields.properties.first_name.name }}"
+			value="{{ form.fields.properties.first_name.value }}"
+			error-message="{{ form.errors['properties.first_name'] }}"
+			{%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'first_name' -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'first_name' -%}
+			{%- if form.errors['properties.first_name'] != nil -%} has-error {%- endif -%} 
+			{%- include 'modules/insites_forms/form_code/validation/type', form: form, name: 'first_name' -%} 
+			{%- include 'modules/insites_forms/form_code/validation/length', form: form, name: 'first_name' -%}>
+		</ins-input>
+	
+	</div>
+	<!-- Field: Last Name -->
+	<div class="column-2">
+		<ins-input 
+			id="1"
+			data-type="string"
+			data-ui="input"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'last_name' -%}"
+			name="{{ form.fields.properties.last_name.name }}"
+			value="{{ form.fields.properties.last_name.value }}"
+			error-message="{{ form.errors['properties.last_name'] }}"
+			{%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'last_name' -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'last_name' -%}
+			{%- if form.errors['properties.last_name'] != nil -%} has-error {%- endif -%} 
+			{%- include 'modules/insites_forms/form_code/validation/type', form: form, name: 'last_name' -%} 
+			{%- include 'modules/insites_forms/form_code/validation/length', form: form, name: 'last_name' -%}>
+		</ins-input>
+	
+	</div>
+	<!-- Field: Email Address -->
+	<div class="column-1">
+		<ins-input 
+			id="2"
+			data-type="string"
+			data-ui="input"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'email_address' -%}"
+			name="{{ form.fields.properties.email_address.name }}"
+			value="{{ form.fields.properties.email_address.value }}"
+			error-message="{{ form.errors['properties.email_address'] }}"
+			{%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'email_address' -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'email_address' -%}
+			{%- if form.errors['properties.email_address'] != nil -%} has-error {%- endif -%} 
+			{%- include 'modules/insites_forms/form_code/validation/type', form: form, name: 'email_address' -%} 
+			{%- include 'modules/insites_forms/form_code/validation/length', form: form, name: 'email_address' -%}>
+		</ins-input>
+	
+	</div>
+	<!-- Field: Phone Number -->
+	<div class="column-1">
+		<ins-input-tel
+			no-areacode 
+			id="3"
+			data-type="string"
+			data-ui="phone"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'phone_number' -%}"
+			name="{{ form.fields.properties.phone_number.name }}"
+			value="{{ form.fields.properties.phone_number.value }}"
+			error-message="{{ form.errors['properties.phone_number'] }}"
+			{%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'phone_number', phone: true -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'phone_number' -%}
+			{%- if form.errors['properties.phone_number'] != nil -%} has-error {%- endif -%}>
+		</ins-input-tel>
+	
+	</div>
+	<!-- Field: Message -->
+	<div class="column-1">
+		<ins-textarea 
+			{% include 'modules/insites_forms/form_code/validation/length', form: form, name: 'message' %} 
+			id="4"
+			data-type="string"
+			data-ui="multi_line"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'message' -%}"
+			name="{{ form.fields.properties.message.name }}"
+			value="{{ form.fields.properties.message.value }}"
+			error-message="{{ form.errors['properties.message'] }}"
+			{%- include 'modules/insites_forms/form_code/placeholder', form: form, name: 'message' -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'message' -%}
+			{%- if form.errors['properties.message'] != nil -%} has-error {%- endif -%}>
+		</ins-textarea>
+	
+	</div>
+	<!-- Field: Attachment -->
+	<div class="column-1">
+		<ins-input-file
+			id="5"
+			data-multiple="false"
+			data-name="{{ form.fields.properties.attachment.name }}"
+			data-type="upload"
+			data-ui="media_file"
+			data-prop="attachment"
+			label="{%- include 'modules/insites_forms/form_code/label', form: form, name: 'attachment' -%}"
+			accepted-files=""
+			capture=""
+			max-files="1"
+			max-file-size="10"
+			error-message="{{ form.errors['properties.attachment'] }}"
+			{%- include 'modules/insites_forms/form_code/validation/file', form: form, name: 'attachment' -%}
+			{%- include 'modules/insites_forms/form_code/validation/required', form: form, name: 'attachment' -%}
+			{%- if form.errors['properties.attachment'] != nil -%} has-error {%- endif -%}>
+		</ins-input-file>
+	
+	</div>
+
+</div>
+
+<div class="insites-form-grid">
+	<div class="column-1">
+		{%- spam_protection 'recaptcha_v2' -%}
+        <div class="spacer small"></div>
+	</div>
+	<div class="insites-form-buttons column-1 right">
+		<ins-button type="submit" icon="" label="Send Message" solid></ins-button>
+	</div>
+</div>
+
+{%- endform -%}
+
+<script id="{{ form.name }}">
+    InsitesFormProcessor.setFormProps("{{ form.name }}", "{{ form.system_fields.parent_resource_id }}", {{ form.fields.properties }});
+
+
+    document.addEventListener("DOMContentLoaded", function() { setTimeout(() => {
+        Array.from(document.querySelectorAll("[data-ui='stepper'][data-type='float']")).forEach(stepper => {
+            const inputEl = stepper.querySelector('input')
+            stepper.querySelectorAll('.ins-input-stepper_minus, .ins-input-stepper_plus').forEach(button => {
+                button.addEventListener('click', function() {
+                    setTimeout(() => {
+                        let fixValue = parseFloat(inputEl.value || 0).toFixed(1).toString()
+                        inputEl.value = fixValue.endsWith('.0') ? fixValue.slice(0, -2) : fixValue
+                    }, 20)
+                })
+            })
+        })
+
+      
+
+      	const formcontactUsEl = document.querySelector('form[name="modules/ins_forms/contact_us"]')
+      
+      
+      
+    }, 350) })
+</script>

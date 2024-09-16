@@ -52,11 +52,11 @@ properties:
     weight: 4
     ui_element: "multi_line"
     is_required: false
-- name: mobile_phone
+- name: phone_number
   type: string
   metadata:
-    label: "Mobile Phone"
+    label: "Phone Number"
     weight: 3
-    ui_element: "input"
+    ui_element: "phone"
     is_required: false
     is_shown_in_table: false
