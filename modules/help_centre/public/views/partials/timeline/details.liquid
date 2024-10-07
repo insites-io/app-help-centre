@@ -4,18 +4,19 @@ metadata: {
 }
 ---
 
-{%- assign last_updated = context.exports.data.updated_at -%}
+{%- assign last_updated = data.updated_at -%}
+{%- assign item = data.properties -%}
 
 {%- comment -%} Checking if detail can be display  {%- endcomment -%}
 {%- assign date_now = 'today' | to_time -%}
 {%- assign item_status = item.status | downcase -%}
 {%- assign is_displayed = false -%}
 
-{%- if item_status == 'published' and item.release_date <= date_now and item.enable_details_page -%}
+{%- if item_status contains 'published' and item.release_date <= date_now and item.enable_details_page -%}
 	{%- assign is_displayed = true -%}
-{%- elsif item_status == 'published' and item.release_date > date_now  and context.params.preview == "true" and item.enable_details_page -%}
+{%- elsif item_status contains 'published' and item.release_date > date_now  and context.params.preview == "true" and item.enable_details_page -%}
 	{%- assign is_displayed = true -%}
-{%- elsif item_status == 'draft' and context.params.preview == "true" and item.enable_details_page -%}
+{%- elsif item_status contains 'draft' and context.params.preview == "true" and item.enable_details_page -%}
 	{%- assign is_displayed = true -%}
 {%- endif -%}
 {%- comment -%} Checking if detail can be display  {%- endcomment -%}

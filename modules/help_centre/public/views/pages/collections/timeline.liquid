@@ -26,10 +26,10 @@ dynamic_cache:
 ---
 
 {%- if context.params.slug2 != blank -%}
-    {%- graphql item = 'modules/help_centre/timeline/get_timeline', 
-	              slug: context.params.slug2 | dig: 'items','results' | first | dig: 'properties' -%}
+    {%- graphql data = 'modules/help_centre/timeline/get_timeline', 
+	              slug: context.params.slug2 | dig: 'items','results' | first -%}
 
-    {%- include "modules/help_centre/timeline/details", item: item -%}  
+    {%- include "modules/help_centre/timeline/details", data: data -%}  
 {%- else -%}
     {%- include "modules/help_centre/timeline/list" -%}      
 {%- endif -%}
