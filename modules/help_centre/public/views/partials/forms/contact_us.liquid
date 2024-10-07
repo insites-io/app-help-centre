@@ -114,12 +114,13 @@
 </div>
 
 <div class="insites-form-grid">
-	<div class="column-1">
-		{%- spam_protection 'recaptcha_v2' -%}
-        <div class="spacer small"></div>
-	</div>
-	<div class="insites-form-buttons column-1 right">
-		<ins-button type="submit" icon="" label="Send Message" solid></ins-button>
+	<div class="column-1 grid-x align-justify align-middle">
+		<div>
+			{%- spam_protection 'recaptcha_v2' -%}
+		</div>
+		<div class="right">
+			<ins-button type="submit" icon="" label="Send Message" solid></ins-button>
+		</div>
 	</div>
 </div>
 
