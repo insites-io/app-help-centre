@@ -3,19 +3,19 @@ metadata: {
   partial_name: "Timeline Tags"
 }
 ---
+{%- graphql tags = 'modules/help_centre/tags/get_tags' | dig: 'items','results' -%}
 
 {%- if tag_ids != blank -%}
     {%- for tag_id in tag_ids -%}
-        {%- graphql tag = 'modules/help_centre/tags/get_tag_by_id', id: tag_id -%}
-        {%- if tag.items.total_entries > 0 -%}
 
-            {%- assign props = tag.items.results[0].properties -%}
+        {% assign props = tags | array_detect: id: tag_id  %}
 
-            <ins-tag label="{{- props.name -}}"
-                icon="{{- props.icon -}}" 
-                color="{{- props.color -}}">
-            </ins-tag>
+        {% if props %}
+        <ins-tag label="{{- props.name -}}"
+            icon="{{- props.icon -}}" 
+            color="{{- props.color -}}">
+        </ins-tag>
+        {% endif %}
 
-        {%- endif -%}
     {%- endfor -%}
 {%- endif -%}

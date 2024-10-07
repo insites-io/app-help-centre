@@ -1,11 +1,11 @@
 query get_tags {
-  items: models(
+  items: records(
     per_page: 100,
     filter: {
       deleted_at: {
         exists: false
       },
-      model_schema_name: {
+      table: {
         value: "modules/help_centre/tags"
       }
     }
@@ -13,6 +13,8 @@ query get_tags {
     results {
       id
       name: property(name: "name")
+      color: property(name: "color")
+      icon: property(name: "icon")
     }
   }
 }

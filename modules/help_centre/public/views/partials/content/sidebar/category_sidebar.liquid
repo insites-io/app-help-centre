@@ -5,9 +5,9 @@ metadata: {
 ---
 
 {%- graphql database = 'modules/help_centre/system/get_database' 
-    database_name: database_name
+    database_name: database_name | dig: 'items','results' | first
 -%}
-{%- assign properties = database.items.results[0].properties -%}
+{%- assign properties = database.properties -%}
 {%- assign categories = '[]' | parse_json -%}
 {%- for property in properties -%}
 	{%- if property.name == "category" -%}
