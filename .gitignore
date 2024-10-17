@@ -3,3 +3,4 @@ tmp/
 .vscode/
 app.zip
 .insites
+.DS_Store
