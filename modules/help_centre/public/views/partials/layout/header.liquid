@@ -8,8 +8,13 @@ metadata: {
     <div class="top-bar grid-container">
         <div class="top-bar-left">
             <a href="/" aria-label="Homepage">
+            {% if context.exports.global.company_logo.url != blank %}
                 <img class="logo" src="{{ context.exports.global.company_logo.url }}" 
-                    alt="{{ context.exports.global.company_slogan | default: 'Homepage' }}" width="180" height="90">
+                alt="{{ context.exports.global.company_slogan | default: 'Homepage' }}" width="180" height="90">
+            {% else %}
+                <img class="logo" src="{{ 'modules/help_centre/images/logo/Logo@2x.png' | asset_url }}" 
+                alt="Homepage" width="180" height="90">
+            {% endif %}     
             </a>
         </div>
         <div class="top-bar-right">

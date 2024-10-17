@@ -1,0 +1,151 @@
+---
+default_payload: '{% assign form_properties = context.params.form.properties_attributes
+  %}{"properties_attributes":{}}'
+email_notifications:
+- modules/ins_forms/forms/autoresponder__608519
+- modules/ins_forms/forms/workflow__608519
+fields:
+  properties:
+    first_name:
+      validation:
+        presence:
+          message:
+          if: "{% if form.first_name != blank %}true{% endif %}"
+    last_name:
+      validation:
+        presence:
+          message:
+          if: "{% if form.last_name != blank %}true{% endif %}"
+    email_address:
+      validation:
+        presence:
+          message:
+          if: "{% if form.email_address != blank %}true{% endif %}"
+        email:
+          message:
+          if: "{% if form.email_address != blank %}true{% endif %}"
+    phone_number:
+      validation: {}
+    message:
+      validation:
+        presence:
+          message:
+          if: "{% if form.message != blank %}true{% endif %}"
+    attachment:
+      validation: {}
+flash_alert: Failed to submit form. Please try again.
+flash_notice: Successfully submitted form.
+metadata:
+  label: Contact Us
+  properties:
+    message:
+      step: 1
+      label: Message
+      hidden: false
+      weight: 4
+      columns: '1'
+      is_enabled: true
+      ui_element: multi_line
+      placeholder: How can we help you?
+      prefill_key:
+      two_columns: false
+      dispay_label: true
+      attribute_type: string
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+    last_name:
+      step: 1
+      label: Last Name
+      hidden: false
+      weight: 1
+      columns: '2'
+      is_enabled: true
+      ui_element: input
+      placeholder: Last Name
+      prefill_key:
+      two_columns: true
+      dispay_label: true
+      attribute_type: string
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+    attachment:
+      step: 1
+      label: Attachment
+      hidden: false
+      weight: 5
+      columns: '1'
+      is_enabled: true
+      ui_element: media_file
+      auto_upload: false
+      prefill_key:
+      two_columns: false
+      dispay_label: true
+      attribute_type: upload
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+    first_name:
+      step: 1
+      label: First Name
+      hidden: false
+      weight: 0
+      columns: '2'
+      is_enabled: true
+      ui_element: input
+      placeholder: First Name
+      prefill_key:
+      two_columns: true
+      dispay_label: true
+      attribute_type: string
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+    phone_number:
+      step: 1
+      label: Phone Number
+      hidden: false
+      weight: 3
+      columns: '1'
+      is_enabled: true
+      ui_element: phone
+      placeholder: Phone Number
+      prefill_key:
+      two_columns: false
+      dispay_label: true
+      attribute_type: string
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+    email_address:
+      step: 1
+      label: Email Address
+      hidden: false
+      weight: 2
+      columns: '1'
+      is_enabled: true
+      ui_element: input
+      placeholder: Email Address
+      prefill_key:
+      two_columns: false
+      dispay_label: true
+      attribute_type: string
+      default_payload:
+      value_calculation: {}
+      visibility_conditions: []
+  form_groups: []
+  buttons_color:
+  database_name: modules/help_centre/contact_us
+  buttons_alignment: Right
+  show_button_icons: false
+  submit_button_icon:
+  submit_button_label: Send Message
+  buttons_background_color:
+redirect_to: "/thank-you"
+resource: modules/help_centre/contact_us
+resource_owner: anyone
+spam_protection:
+  recaptcha_v2: {}
+---
+{% include "modules/help_centre/forms/contact_us" %}

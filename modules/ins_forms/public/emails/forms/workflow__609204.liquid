@@ -1,0 +1,12 @@
+---
+from: "{{ form.properties.email }} <{{ form.properties.email }}>"
+layout: modules/insites_core/insites_internal_email_layout
+metadata:
+  type: workflow
+reply_to: no-reply@insites.io
+subject: New subscripttion from {{ form.properties.email }}
+to: help-centre@insites.io
+trigger_condition: 'true'
+unique_args: ''
+---
+{%- include 'modules/insites_core/email_layout/workflow_content', form_data: form -%}
