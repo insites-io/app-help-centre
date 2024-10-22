@@ -23,19 +23,6 @@ metadata: {
     },
     "search_engine_visibility": "true"
 }
-dynamic_cache:
-  layout: true
-  key: |-
-    {%- parse_json models -%}
-    [
-      "modules/insites_cms/global",
-      "modules/help_centre/articles",
-      "modules/help_centre/useful_links",
-      "modules/help_centre/faqs",
-      "modules/help_centre/documentation"
-    ]
-    {%- endparse_json -%}
-    {%- include "modules/help_centre/generate_cache_key", models: models -%}
 ---
 {%- comment -%}
     This is where the contents of the landing page is imported/included in the forms of partials.
