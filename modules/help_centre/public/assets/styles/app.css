@@ -392,6 +392,25 @@ ins-drawer#mobile-menu .ins-backdrop-wrap {
 .articles a:hover h3 {
     color: var(--color-main, #116EC3);
 }
+
+.articles .markdown p,
+.articles .markdown h3,
+.articles .markdown h2,
+.articles .markdown h1 {
+    display: inline;
+}
+
+.articles .markdown h3,
+.articles .markdown h2,
+.articles .markdown h1 {
+    font-family: var(--font-main, sans-serif);
+    font-style: normal;
+    font-weight: 400;
+    font-size: var(--font-size-small, 1rem);
+    line-height: 26px;
+    color:  #595959;
+}
+
 /** Articles **/
 
 /** Timeline **/

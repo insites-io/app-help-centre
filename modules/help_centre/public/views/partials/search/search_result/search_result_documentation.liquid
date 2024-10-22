@@ -29,7 +29,9 @@ metadata: {
                     </div>
                     <div class="spacer large"></div>
                     <div class="small-12 medium-12 large-12">
-                        <p>{{- documentation.properties.content | truncate: 230 -}}</p>
+                        <ins-markdown
+                        value="{{ documentation.properties.content | html_safe | truncate: 230 }}">
+                      </ins-markdown>		
                     </div>
                     <div class="spacer x-small"></div>
                         <div class="small-12 medium-12 large-12 read-more">
