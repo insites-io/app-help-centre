@@ -1,15 +1,17 @@
 ---
-from: Insites Help Centre <no-reply@insites.io>
-layout: modules/insites_core/insites_external_email_layout
+from: >
+    {%- include 'modules/insites_crm/email_layout/autoresponder_from' -%}
+layout: modules/insites_crm/external_email_layout
 metadata:
   type: autoresponder
-reply_to: no-reply@insites.io
+reply_to: >
+    {%- include 'modules/insites_crm/email_layout/autoresponder_reply_to' -%}
 subject: Thank you for subscribing to Insites Template!
 to: "{{ form.properties.email }}"
 trigger_condition: 'true'
 unique_args: ''
 ---
-{%- include 'modules/insites_core/email_layout/autoresponder_content'
+{%- include 'modules/insites_crm/email_layout/autoresponder_content'
     title: "Thank you for subscribing to Insites Template!",
     content: "Thank you for subscribing to Insites Help Centre! We're thrilled to have you join our community.",
     subcontent: ""
