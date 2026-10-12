@@ -1,15 +1,17 @@
 ---
-from: "{{ form.properties.first_name }} {{ form.properties.last_name }} <no-reply@insites.io>"
-layout: modules/insites_core/insites_empty
+from: >
+    {%- include 'modules/insites_crm/email_layout/autoresponder_from' -%}
+layout: modules/insites_crm/external_email_layout
 metadata:
   type: autoresponder
-reply_to: no-reply@insites.io
+reply_to: >
+    {%- include 'modules/insites_crm/email_layout/autoresponder_reply_to' -%}
 subject: Thank you for contacting us
 to: "{{ form.properties.email_address }}"
 trigger_condition: 'true'
 unique_args: ''
 ---
-{%- include 'modules/insites_core/email_layout/autoresponder_content'
+{%- include 'modules/insites_crm/email_layout/autoresponder_content'
     title: "Thank you for your enquiry",
     content: "We have sucessfully received your enquiry and one of our team members will contact you shortly.",
     subcontent: ""

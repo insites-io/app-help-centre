@@ -1,14 +1,16 @@
 ---
-from: "{{ form.properties.first_name }} {{ form.properties.last_name }} <{{ form.properties.email_address
-  }}>"
-layout: modules/insites_core/insites_internal_email_layout
+from: >
+    {%- include 'modules/insites_crm/email_layout/form_notification_from' -%}
+layout: modules/insites_crm/internal_email_layout
 metadata:
   type: workflow
-reply_to: no-reply@insites.io
+reply_to: >
+    {%- include 'modules/insites_crm/email_layout/workflow_reply_to' -%}
 subject: New enquiry from {{ form.properties.first_name }} {{ form.properties.last_name
   }}
-to: no-reply@insites.io
+to: >
+    {%- include 'modules/insites_crm/email_layout/workflow_to' -%}
 trigger_condition: 'true'
 unique_args: ''
 ---
-{%- include 'modules/insites_core/email_layout/workflow_content', form_data: form -%}
+{%- include 'modules/insites_crm/email_layout/workflow_content', form_data: form -%}
